@@ -1,1 +1,1 @@
-# QTApp
+# Kelta-Calender app
