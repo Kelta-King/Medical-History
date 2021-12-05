@@ -1,8 +1,0 @@
-Features:
-
-- Add New Patient (With Family: Yes or No) (In the beginning, add complain and all too)
-- Search Patient
-- Edit Patient
-- Add complain and all of Patient (add visit for patient)
-
-- Search Family

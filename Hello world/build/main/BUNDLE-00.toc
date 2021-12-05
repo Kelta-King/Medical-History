@@ -1,3 +1,0 @@
-([('main',
-   '/Users/kushangshah/Codes/Medical-History/Hello world/dist/main',
-   'EXECUTABLE')],)
