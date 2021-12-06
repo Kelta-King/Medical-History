@@ -8,71 +8,100 @@
 </head>
 <body class=''>
     <div class="w3-bar w3-top w3-large w3-margin" style="z-index:4">
-        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" 
-        onclick="nav_open();"><i class="fa fa-bars"></i></button>
+        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none kel-hover w3-hover-text-black" 
+        onclick="nav_open();" id='bars'><i class="fa fa-bars"></i></button>
+        <div class='w3-hide-small w3-hide-medium' style='width:300px;'></div>
+        <div class='w3-bar-item w3-large w3-text-dark-gray' style='margin-left:300px;'>
+            Patient Records Management System
+        </div>
         <div class="w3-bar-item w3-right w3-border-left"
-        style='padding:8px 16px 8px 32px;margin-right:32px;'>
+        style='padding:8px 16px 8px 32px;margin-right:32px;'
+        onclick='openDropDown()'>
             <i class='fa fa-user-circle-o w3-text-gray w3-large kel-hover'></i>
         </div>
+        
     </div>
+    <!-- Dropdown for logout and account -->
+    <div class='w3-display-topright w3-padding' id='dropdown'
+    style='z-index:9;margin-top:75px;margin-right:0px;display:none;'>
+        <div class='w3-round w3-white w3-padding w3-card'>
+            <div class='w3-bar-block'>
+                <div class="w3-bar-item w3-button w3-hover-none"> 
+                    <i class='fa fa-key' style='padding-right:8px;'></i> Change password 
+                </div>
+                <div class="w3-bar-item w3-button w3-hover-none"
+                style='padding-bottom:14px;'> 
+                    <i class='fa fa-pencil' style='padding-right:8px;'></i> Edit details 
+                </div>
+                <a href="../logout<?php echo $url_extension ?>"
+                style='text-decoration:none;'>
+                    <div class="w3-bar-item w3-border-top w3-button w3-hover-none"
+                    style='padding-top:14px;'> 
+                        <i class='fa fa-sign-out' style='padding-right:8px;'></i> Log out 
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openDropDown(){
+            if(document.getElementById("dropdown").style.display == "block"){
+                document.getElementById("dropdown").style.display = "none";
+            }
+            else{
+                document.getElementById("dropdown").style.display = "block";
+            }
+        }
+    </script>
     <!-- Overlay effect when opening sidebar on small screens -->
     <div class="w3-overlay w3-hide-large w3-animate-opacity" 
     onclick="nav_close()" style="cursor:pointer" 
     title="close side menu" id="myOverlay"></div>
 
     <!-- Nav bar -->
-    <nav class="w3-sidebar w3-collapse side-nav w3-text-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
-        <div class="w3-container w3-bar">
-            <div class='w3-bar-item' style='padding-top:12px;'>
-                <i class='fa fa-folder-open w3-xxlarge'></i>
-            </div>
-            <div class='w3-bar-item w3-center'>
-                <b> PATIENT <br> RECORDS </b>
-            </div>
-        </div>
-        <div class="w3-border-top w3-border-bottom w3-margin-top w3-margin-bottom w3-container w3-large">
-            <a href="" class="w3-bar-item kel-hover w3-padding-32"
-            style='text-decoration:none;'>
-                <div class='w3-padding w3-margin-top w3-margin-bottom'>
-                    <i class="fa fa-tachometer fa-fw"></i>  Dashboard
-                </div>
-            </a>
-        </div>
-        <div class="w3-bar-block w3-container">
-            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="nav_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-            <a href="#" class="w3-bar-item w3-padding"
-            style='text-decoration:none;'>
-                <div style='padding:8px 0px;'>
-                    <i class="fa fa-filter fa-fw w3-large"></i>  Filter search
-                </div>
-            </a>
-            <a href="#" class="w3-bar-item w3-padding"
-            style='text-decoration:none;'>
-                <div style='padding:8px 0px;'>
-                    <i class="fa fa-user-plus fa-fw w3-large"></i>  Add Patient
-                </div>
-            </a>
-            <a href="#" class="w3-bar-item w3-padding"
-            style='text-decoration:none;'>
-                <div style='padding:8px 0px;'>
-                    <i class="fa fa-search fa-fw w3-large"></i>  Search Patient
-                </div>
-            </a>
-            <a href="#" class="w3-bar-item w3-padding"
-            style='text-decoration:none;'>
-                <div style='padding:8px 0px;'>
-                    <i class="fa fa-users fa-fw w3-large"></i>  Search Family
-                </div>
-            </a>
-            <br><br>
-        </div>
-    </nav>
+    <?php
+        include_once("Common/sidenav.php");
+    ?>
     <div class='w3-main w3-white' style="margin-left:300px;">
         <div style='height:80px;'>
             <!-- Blank space for top bar -->
         </div>
         <div class='w3-light-gray w3-padding'>
-
+            <div class='w3-bar'>
+                <div class='w3-bar-item w3-right'>
+                    <a href="">
+                        <button class='w3-button w3-round kel-hover w3-text-white'
+                        style='background-color:#00A36C;'>
+                            <i class='fa fa-plus'></i> Add Patient
+                        </button>
+                    </a>
+                </div>
+                <div class='w3-bar-item'>
+                    <a href="">
+                        <button class='w3-button w3-round w3-blue kel-hover'>
+                            <i class='fa fa-search'></i> Search Patient
+                        </button>
+                    </a>
+                </div>
+                <div class='w3-bar-item'>
+                    <a href="">
+                        <button class='w3-button w3-round kel-hover w3-text-white'
+                        style='background-color:#2AAA8A;'>
+                            <i class='fa fa-users'></i> Search Family
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <hr style='border-bottom:0.5px solid gray;'>
+            <div class='w3-content w3-padding-64' style='max-width:600px;'>
+                <input type="text" name="search_field" id="search_field"
+                class='w3-input w3-border w3-round' placeholder='Search patient or family...'>
+            </div>
+            <div style='min-height:400px;'></div>
+            <hr style='border-bottom:0.5px solid gray;'>
+            <div class='w3-container w3-center w3-padding'>
+                &reg; Patients Record management system By Kushang Shah
+            </div>
         </div>
     </div>
 
