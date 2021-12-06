@@ -45,12 +45,13 @@ require("Common/kelta_functions.php");
                         </div>
                         <div class='w3-section'>
                             <div style='padding-bottom:6px;'> Password </div>
-                            <input type="text" id="password" 
+                            <input type="password" id="password" 
                             class='w3-input w3-border w3-round' placeholder='Password'>
                         </div>
                     </form>
                     <div class='w3-section w3-center'>
-                        <button class='w3-button kel-hover w3-green w3-round w3-hover-green'>
+                        <button class='w3-button kel-hover w3-green w3-round w3-hover-green'
+                        onclick='login()'>
                             Login
                         </button>
                     </div>

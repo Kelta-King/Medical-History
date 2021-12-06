@@ -1,8 +1,7 @@
 
 document.getElementById("login_form").addEventListener("keydown", function(evt){
     if(evt.keyCode == 13){
-        console.log("here");
-        // login();
+        login();
     }
 });
 
@@ -30,7 +29,7 @@ let login = () => {
 		
 	}
 	
-	if(!email_check(email, error)){
+	if(!email_check(email)){
 	
         showError("Invalid email");
 		endLoader();
@@ -40,27 +39,34 @@ let login = () => {
 	
 	let str = "email="+email+"&password="+pass;
 	let xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function (){
-			
-		if(this.readyState == 4 && this.status == 200){
-			
-			endLoader();
-			
-			if(this.responseText == ""){
-				form.method = "post";
-				form.action = "login_action";
-				form.submit();		
-			}
-			else{
-				showError(this.responseText);
-			}
-			
-		}
-		
-	}
-	
-	xhttp.open("POST", "Action/login", true);
-	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send(str);
+    try 
+    {
+        xhttp.onreadystatechange = function (){
+                
+            if(this.readyState == 4 && this.status == 200){
+                
+                endLoader();
+                
+                if(this.responseText == "Valid"){
+                    form.method = "post";
+                    form.action = "login_action";
+                    form.submit();		
+                }
+                else{
+                    showError(this.responseText);
+                }
+                
+            }
+            
+        }
+        
+        xhttp.open("POST", "Action/checkAdmin"+extension, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(str);
+    }
+    catch (error) {
+        console.log(error);
+        endLoader();
+    }
 	
 }
