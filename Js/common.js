@@ -292,6 +292,7 @@ let mobileCheck = (number) => {
 }
 
 const showError = (msg = '', id = 'err') => {
+	alert(msg);
     document.getElementById(id).innerHTML = `
     <div class='w3-padding w3-center w3-text-red'>
         ${msg}

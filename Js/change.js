@@ -71,7 +71,7 @@ const changeDetails = () => {
     if(email.trim() == ""){
 		
 		showError("Admin email is empty");
-		endLoader()
+		endLoader();
 		return false;
 		
 	}
