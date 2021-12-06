@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="w3-border-top w3-border-bottom w3-margin-top w3-margin-bottom w3-container w3-large">
-            <a href="" class="w3-bar-item kel-hover w3-padding-32"
+            <a href="dashboard<?php echo $url_extension ?>" class="w3-bar-item kel-hover w3-padding-32"
             style='text-decoration:none;'>
                 <div class='w3-padding w3-margin-top w3-margin-bottom'>
                     <i class="fa fa-tachometer fa-fw"></i>  Dashboard
@@ -21,28 +21,28 @@
             </a>
         </div>
         <div class="w3-bar-block w3-container">
-            <a href="#" class="w3-bar-item w3-padding"
-            style='text-decoration:none;'>
-                <div style='padding:8px 0px;'>
-                    <i class="fa fa-filter fa-fw w3-large"></i>  Filter search
-                </div>
-            </a>
-            <a href="#" class="w3-bar-item w3-padding"
+            <a href="addPatient<?php echo $url_extension ?>" class="w3-bar-item w3-padding"
             style='text-decoration:none;'>
                 <div style='padding:8px 0px;'>
                     <i class="fa fa-user-plus fa-fw w3-large"></i>  Add Patient
                 </div>
             </a>
-            <a href="#" class="w3-bar-item w3-padding"
+            <a href="searchPatient<?php echo $url_extension ?>" class="w3-bar-item w3-padding"
             style='text-decoration:none;'>
                 <div style='padding:8px 0px;'>
                     <i class="fa fa-search fa-fw w3-large"></i>  Search Patient
                 </div>
             </a>
-            <a href="#" class="w3-bar-item w3-padding"
+            <a href="searchFamily<?php echo $url_extension ?>" class="w3-bar-item w3-padding"
             style='text-decoration:none;'>
                 <div style='padding:8px 0px;'>
                     <i class="fa fa-users fa-fw w3-large"></i>  Search Family
+                </div>
+            </a>
+            <a href="editAccount<?php echo $url_extension ?>" class="w3-bar-item w3-padding"
+            style='text-decoration:none;'>
+                <div style='padding:8px 0px;'>
+                    <i class="fa fa-pencil fa-fw w3-large"></i>  Edit Account
                 </div>
             </a>
             <br><br>
