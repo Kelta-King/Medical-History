@@ -81,7 +81,7 @@
                 style='padding:24px 16px;'>
                     <div class='w3-pale-red' id='err'>
                     </div>
-                    <form id="change_pass_form">
+                    <form id="change_form">
                     <div class='w3-section'>
                         <div class='w3-text-gray' style='padding:8px 0px;'>
                             Old password
@@ -113,6 +113,6 @@
         </div>
     </div>
     <script src="../Js/common.js"></script>
-    <script src="../Js/changePass.js"></script>
+    <script src="../Js/change.js"></script>
 </body>
 </html>
