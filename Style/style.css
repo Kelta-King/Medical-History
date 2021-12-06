@@ -53,8 +53,14 @@
 }
 
 #login_bg{
-	/* background-color: red; For browsers that do not support gradients */
   	background-image: linear-gradient(#00A36C, #2AAA8A);
 	background-repeat: no-repeat;
 	min-height: 600px;
+}
+body{
+  	font-family: 'Ubuntu', sans-serif;
+}
+.side-nav{
+  	background-image: linear-gradient( #2AAA8A, #00A36C)!important;
+	background-repeat: no-repeat;
 }

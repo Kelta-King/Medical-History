@@ -20,11 +20,6 @@ require("Common/kelta_functions.php");
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <style>
-        body{
-            font-family: 'Ubuntu', sans-serif;
-        }
-    </style>
 </head>
 <body class='' id='login_bg'>
     <div class='w3-content' style=''>
@@ -39,12 +34,12 @@ require("Common/kelta_functions.php");
                     </div>
                     <form id='login_form'>
                         <div class='w3-section'>
-                            <div style='padding-bottom:6px;'> Email </div>
+                            <div style='padding-bottom:6px;cursor:default;'> Email </div>
                             <input type="text" id="email" name='email'
                             class='w3-input w3-border w3-round' placeholder='Email'>
                         </div>
                         <div class='w3-section'>
-                            <div style='padding-bottom:6px;'> Password </div>
+                            <div style='padding-bottom:6px;cursor:default;'> Password </div>
                             <input type="password" id="password" name='password'
                             class='w3-input w3-border w3-round' placeholder='Password'>
                         </div>
