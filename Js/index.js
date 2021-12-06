@@ -49,7 +49,7 @@ let login = () => {
                 
                 if(this.responseText == "Valid"){
                     form.method = "post";
-                    form.action = "login_action";
+                    form.action = "login_action"+extension;
                     form.submit();		
                 }
                 else{

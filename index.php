@@ -40,12 +40,12 @@ require("Common/kelta_functions.php");
                     <form id='login_form'>
                         <div class='w3-section'>
                             <div style='padding-bottom:6px;'> Email </div>
-                            <input type="text" id="email" 
+                            <input type="text" id="email" name='email'
                             class='w3-input w3-border w3-round' placeholder='Email'>
                         </div>
                         <div class='w3-section'>
                             <div style='padding-bottom:6px;'> Password </div>
-                            <input type="password" id="password" 
+                            <input type="password" id="password" name='password'
                             class='w3-input w3-border w3-round' placeholder='Password'>
                         </div>
                     </form>
