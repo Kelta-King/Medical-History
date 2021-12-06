@@ -26,25 +26,29 @@ require("Common/kelta_functions.php");
         }
     </style>
 </head>
-<body class='w3-green' id='login_bg'>
+<body class='' id='login_bg'>
     <div class='w3-content' style=''>
-        <div class='w3-round w3-padding w3-white' style='margin-top:40px;'>
+        <div class='w3-round w3-padding w3-white' style='margin-top:100px;'>
             <div class='w3-padding-32'>
                 <div class='w3-center'>
                     <h2 class='w3-text-gray'> <?php echo CLINIC_NAME ?> </h2>
                     <h3 class='w3-text-black'> Patient Record Management System  </h3>
                 </div>
                 <div class='w3-content w3-border-top' style='max-width:430px'>
-                    <div class='w3-section'>
-                        <div style='padding-bottom:6px;'> Email </div>
-                        <input type="text" id="email" 
-                        class='w3-input w3-border w3-round' placeholder='Email'>
+                    <div class='w3-pale-red' id='err'>
                     </div>
-                    <div class='w3-section'>
-                        <div style='padding-bottom:6px;'> Password </div>
-                        <input type="text" id="email" 
-                        class='w3-input w3-border w3-round' placeholder='Password'>
-                    </div>
+                    <form id='login_form'>
+                        <div class='w3-section'>
+                            <div style='padding-bottom:6px;'> Email </div>
+                            <input type="text" id="email" 
+                            class='w3-input w3-border w3-round' placeholder='Email'>
+                        </div>
+                        <div class='w3-section'>
+                            <div style='padding-bottom:6px;'> Password </div>
+                            <input type="text" id="password" 
+                            class='w3-input w3-border w3-round' placeholder='Password'>
+                        </div>
+                    </form>
                     <div class='w3-section w3-center'>
                         <button class='w3-button kel-hover w3-green w3-round w3-hover-green'>
                             Login
@@ -54,6 +58,8 @@ require("Common/kelta_functions.php");
             </div>
         </div>
     </div>
+    <script src="Js/common.js"></script>
+    <script src="Js/index.js"></script>
 </body>
 </html>
 
