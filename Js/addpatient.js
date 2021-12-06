@@ -86,4 +86,76 @@ const addPatient = () => {
 		return false;
     }
 
+    // If new family is yes then add new family according to patient name
+    // otherwise add the id of family
+    // else add none
+    let new_family = "";
+    if(document.getElementById("new_family_check").checked){
+        new_family = "Yes";
+    }
+    else{
+        new_family = family.value;
+    }
+
+    // If current timings is yes then add current timing according to sql time
+    // otherwise add the time from input
+    // else add current timing
+    let current_timings = "";
+    if(document.getElementById("current_timing_check").checked){
+        current_timings = "Yes";
+    }
+    else{
+
+        if(document.getElementById("date_time").value.trim() == ""){
+            document.getElementById("date_time").focus();
+            showError("Date is empty");
+            endLoader();
+            return false;
+        }
+        else if(timings.value.trim() == ""){
+            timings.focus();
+            showError("Current timing is empty");
+            endLoader();
+            return false;
+        }
+        current_timings = document.getElementById("date_time").value + " " + timings.value;
+    }
+
+    let obj = {
+        'name':name.value,
+        'age':age.value,
+        'gender':gender.value,
+        'address':address.value,
+        'mobile_number':mobile_no.value,
+        'new_family':new_family,
+        'timings':current_timings,
+        'complain':complain.value,
+        'diagnose':diagnose.value,
+        'treatment':treatment.value,
+        'paid':paid.value,
+        'unpaid':unpaid.value,
+    }
+    console.log(obj);
+
+    obj = window.btoa(JSON.stringify(obj));
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            console.log(this.responseText);
+            if (!errorCheck(this.responseText)) {
+                alert(this.responseText);
+                location.reload();
+            }
+            endLoader();
+        }
+
+    }
+
+    xhttp.open("POST", "Action/addPatientAction" + extension, true)
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(obj);
+
 }

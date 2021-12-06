@@ -37,14 +37,14 @@
                                 <div style='margin:8px 4px;'>
                                 <div style='padding:8px 0px;'> Name<span class='w3-text-red'>*</span> </div>
                                     <input type="text" placeholder="Patient name"
-                                    id='patient_name' class='w3-input w3-round w3-border'>
+                                    id='patient_name' class='w3-input w3-round w3-border' value="Sardar patel">
                                 </div>
                             </div>
                             <div class='w3-third'>
                                 <div style='margin:8px 4px;'>
                                 <div style='padding:8px 0px;'> Age<span class='w3-text-red'>*</span> </div>
                                     <input type="number" placeholder="Patient age"
-                                    id='patient_age' class='w3-input w3-round w3-border'>
+                                    id='patient_age' class='w3-input w3-round w3-border' value="6">
                                 </div>
                             </div>
                             <div class='w3-third'>
@@ -52,8 +52,8 @@
                                 <div style='padding:8px 0px;'> Gender <span class='w3-text-red'>*</span> </div>
                                     <Select type="text" placeholder="" class='w3-input w3-round w3-border' 
                                     id='patient_gender' style='padding:10px 4px;'>
-                                        <option value="" selected disabled> Patient name </option>
-                                        <option value="M"> Male </option>
+                                        <option value="" selected disabled> Patient Gender </option>
+                                        <option value="M" selected> Male </option>
                                         <option value="F"> Female </option>
                                         <option value="O"> Other </option>
                                     </select>
@@ -63,14 +63,15 @@
                         <div class='w3-section' style='padding:4px;' >
                             <div style='padding:8px 0px;'> Address </div>
                             <textarea id="address" class="w3-input w3-border w3-round" 
-                            rows="2" placeholder="Patients address or Village or City"></textarea>
+                            rows="2" placeholder="Patients address or Village or City">sample</textarea>
                         </div>
                         <div class='w3-row'>
                             <div class='w3-half'>
                                 <div style='margin:8px 4px;'>
                                 <div style='padding:8px 0px;'> Mobile No </div>
                                     <input type="number" placeholder="Patient mobile number"
-                                    id='mobile_number' class='w3-input w3-round w3-border'>
+                                    id='mobile_number' class='w3-input w3-round w3-border'
+                                    value="2345678899">
                                 </div>
                             </div>
                             <div class='w3-half'>
@@ -103,37 +104,38 @@
                                 Current timing
                             </label>
                             <div id='time_box' style='display:none;'>
+                                <input type="date" id='date_time' class='w3-input w3-border w3-round'>
                                 <input type="time" step="1" id="timings" class='w3-input w3-border w3-round'>
                             </div>
                         </div>
                         <div class='w3-section' style='padding:4px;' >
                             <div style='padding:8px 0px;'> Complain<span class='w3-text-red'>*</span> </div>
                             <textarea id="complain" class="w3-input w3-border w3-round" 
-                            rows="2" placeholder="Complain of patient"></textarea>
+                            rows="2" placeholder="Complain of patient">sample complain</textarea>
                         </div>
                         <div class='w3-section' style='padding:4px;' >
                             <div style='padding:8px 0px;'> Diagnose<span class='w3-text-red'>*</span> </div>
                             <textarea id="diagnose" class="w3-input w3-border w3-round" 
-                            rows="2" placeholder="Diagnose of patient"></textarea>
+                            rows="2" placeholder="Diagnose of patient">sample diagnose</textarea>
                         </div>
                         <div class='w3-section' style='padding:4px;' >
                             <div style='padding:8px 0px;'> Treatment<span class='w3-text-red'>*</span> </div>
                             <textarea id="treatment" class="w3-input w3-border w3-round" 
-                            rows="2" placeholder="Treatment of patient"></textarea>
+                            rows="2" placeholder="Treatment of patient">sample treatment</textarea>
                         </div>
                         <div class='w3-row'>
                             <div class='w3-half'>
                                 <div style='margin:8px 4px;'>
                                     <div style='padding:8px 0px;'> Paid<span class='w3-text-red'>*</span> </div>
                                     <input type="number" id="paid" placeholder="Amount paid"
-                                    class='w3-input w3-border w3-round'>
+                                    class='w3-input w3-border w3-round' value="234">
                                 </div>
                             </div>
                             <div class='w3-half'>
                                 <div style='margin:8px 4px;'>
                                     <div style='padding:8px 0px;'> Unpaid<span class='w3-text-red'>*</span> </div>
                                     <input type="number" id="unpaid" placeholder="Amount unpaid"
-                                    class='w3-input w3-border w3-round'>
+                                    class='w3-input w3-border w3-round' value="34">
                                 </div>
                             </div>
                         </div>
