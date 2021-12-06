@@ -6,8 +6,10 @@
     require("../Common/kelta_functions.php");
 
     if(isset($_SESSION['login_admin'])){
+        
         $data = base64_decode($_SESSION['login_admin']);
         $data = explode("#", $data);
+
         if(count($data) != 2){
             echo "Something went wrong";
             header("Location:../logout"+$url_extension);

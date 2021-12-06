@@ -19,6 +19,11 @@
             require_once("../DB/dbconnect.php");
             
             // Data of the page
+            $query = "SELECT admin_email, admin_name FROM admin WHERE admin_id = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param('i', $admin_id);
+            $stmt->execute();
+            $admin_data = $stmt->get_result()->fetch_assoc();
             
             $conn->close();
 			unset($_SESSION['db_join']);
