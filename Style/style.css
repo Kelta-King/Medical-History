@@ -32,7 +32,7 @@
     top: 100%;
     left: 0;
     right: 0;
-  }
+}
   
 .autocomplete-items div {
     padding: 10px;
@@ -51,4 +51,10 @@
     background-color: DodgerBlue !important; 
     color: #ffffff; 
 }
-  
+
+#login_bg{
+	background-color: red; /* For browsers that do not support gradients */
+  	background-image: linear-gradient(#00A36C, #2AAA8A);
+	background-repeat: no-repeat;
+	height: 100%;
+}
