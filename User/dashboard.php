@@ -21,6 +21,15 @@
             require_once("../DB/dbconnect.php");
             
             // Data of the page
+            $query = "SELECT COUNT(f_id) FROM family";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            $family_count = $stmt->get_result()->fetch_assoc()['COUNT(f_id)'];
+
+            $query = "SELECT COUNT(p_id) FROM patients";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            $patients_count = $stmt->get_result()->fetch_assoc()['COUNT(p_id)'];
             
             $conn->close();
 			unset($_SESSION['db_join']);

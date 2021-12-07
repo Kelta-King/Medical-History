@@ -167,8 +167,24 @@ const addPatient = () => {
 
             console.log(this.responseText);
             if (!errorCheck(this.responseText)) {
+                
                 alert(this.responseText);
-                window.location.href += "?success=Patient Added Successfully";
+                
+                if(this.responseText == "Patient added"){
+                    
+                    let url_string = window.location.href;
+                    let url = new URL(url_string);
+                    let c = url.searchParams.get("success");
+                    
+                    if(c == null){
+                        window.location.href += "?success=Patient Added Successfully";
+                    }
+                    else{
+                        location.reload();
+                    }
+
+                }
+
             }
             endLoader();
         }
