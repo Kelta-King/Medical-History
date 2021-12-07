@@ -30,17 +30,23 @@ function autocomplete(inp, arr) {
           
             /*check if the item starts with the same letters as the text field value:*/
             if (arr[i].toUpperCase().includes(val.toUpperCase())) {
-                
+
+                // Split id with data 
+                let data = arr[i].split("#");
+                let id = data[0];
+                let string = data[1];
+
                 /*create a DIV element for each matching element:*/
                 b = document.createElement("DIV");
-                let index = arr[i].toUpperCase().indexOf(val.toUpperCase());
+                let index = string.toUpperCase().indexOf(val.toUpperCase());
+                
                 /*make the matching letters bold:*/
-                b.innerHTML = arr[i].substr(0, index);
-                b.innerHTML += "<strong>" + arr[i].substr(index, val.length) + "</strong>";
-                b.innerHTML += arr[i].substr(index + val.length, arr[i].length);
+                b.innerHTML = string.substr(0, index);
+                b.innerHTML += "<strong>" + string.substr(index, val.length) + "</strong>";
+                b.innerHTML += string.substr(index + val.length, string.length);
                 
                 /*insert a input field that will hold the current array item's value:*/
-                b.innerHTML += "<input type='hidden' value='" + i + "'>";
+                b.innerHTML += "<input type='hidden' value='" + id + "'>";
                 
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {

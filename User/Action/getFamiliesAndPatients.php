@@ -23,6 +23,7 @@ if(isset($_SESSION['login_admin'])){
     $data = $stmt->get_result();
     
     while($f = $data->fetch_assoc()){
+        $f = "f.".$f['f_id']."#".$f['f_name']." (Family members:".$f['f_members'].")";
         array_push($family, $f);
     }
 
@@ -35,7 +36,7 @@ if(isset($_SESSION['login_admin'])){
     $data = $stmt->get_result();
     
     while($f = $data->fetch_assoc()){
-        // $f = $f['p_id'];
+        $f = "p.".$f['p_id']."#".$f['p_name']." (Age:".$f['p_age'].")";
         array_push($patients, $f);
     }
 

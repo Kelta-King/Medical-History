@@ -12,8 +12,9 @@ window.onload = function(){
                 endLoader();
                 
                 if(!errorCheck(this.responseText)){
-                    console.log(JSON.parse(this.responseText));
-                    entries = ['yoman', 'no'];
+                    let data = JSON.parse(this.responseText);
+                    entries = data['families'].concat(data['patients']);
+                    console.log(entries);
                     autocomplete(document.getElementById("search_field"), entries);
                 }
                 
