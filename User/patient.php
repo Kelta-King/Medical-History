@@ -18,7 +18,43 @@
             $_SESSION['db_join'] = "yes, join";
             require_once("../DB/dbconnect.php");
             
+            $patient = "";
             // Data of the page
+            if(isset($_GET['id'])){
+                if(is_numeric($_GET['id']) == 1){
+                    
+                    $patient_id = (int)$_GET['id'];
+                    $query = "SELECT * FROM patients WHERE p_id = ?";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param('i', $patient_id);
+                    $stmt->execute();
+
+                    $data = $stmt->get_result();
+                    
+                    if($data->num_rows == 1){
+                        $patient = $data->fetch_assoc();
+                    }
+                    else{
+                        die("Something went wrong1");
+                    }
+
+                    $query = "SELECT v_id, v_timing, v_complain, v_paid, v_unpaid FROM visits WHERE v_patient = ?";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param('i', $patient_id);
+                    $stmt->execute();
+
+                    $visits = $stmt->get_result();
+                    
+                }
+                else{
+                    die("Something went wrong");
+                }
+            }
+            else{
+                $conn->close();
+			    unset($_SESSION['db_join']);
+                die("Seomthing went wrong");
+            }
             
             $conn->close();
 			unset($_SESSION['db_join']);

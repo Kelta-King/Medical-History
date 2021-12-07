@@ -50,7 +50,7 @@
                             <table>
                                 <tr>
                                     <td class='w3-text-green w3-padding-16' style='padding-right:16px;'> Patient Name </td>
-                                    <td class='w3-large w3-padding-16' style='padding-left:8px;'> Kushang Shah </td>
+                                    <td class='w3-large w3-padding-16' style='padding-left:8px;'> <?php echo $patient['p_name'] ?> </td>
                                 </tr>
                             </table>
                         </div>
@@ -61,7 +61,7 @@
                             <table>
                                 <tr>
                                     <td class='w3-text-green w3-padding-16' style='padding-right:16px;'> Patient No. </td>
-                                    <td class='w3-large w3-padding-16' style='padding-left:8px;'> P.1 </td>
+                                    <td class='w3-large w3-padding-16' style='padding-left:8px;'> P.<?php echo $patient_id ?> </td>
                                 </tr>
                             </table>
                         </div>
@@ -90,7 +90,7 @@
                                         Address:
                                     </div>
                                     <div class='kel-bold w3-text-dark-gray w3-large'>
-                                    San Carlos Heights Binangonan Rizal
+                                        <?php echo $patient['p_address'] ?>
                                     </div>
                                 </div>
                                 <div class='w3-section' style='padding-top:16px;'>
@@ -98,7 +98,7 @@
                                         Age:
                                     </div>
                                     <div class='kel-bold w3-text-dark-gray w3-large'>
-                                        26
+                                        <?php echo $patient['p_age'] ?>
                                     </div>
                                 </div>
                                 <div class='w3-section' style='padding-top:16px;'>
@@ -106,7 +106,20 @@
                                         Gender:
                                     </div>
                                     <div class='kel-bold w3-text-dark-gray w3-large'>
-                                        Male
+                                        <?php
+                                            if($patient['p_gender'] == "M"){
+                                                echo "Male";
+                                            }
+                                            else if($patient['p_gender'] == "F"){
+                                                echo "Female";
+                                            }
+                                            else if($patient['p_gender'] == "O"){
+                                                echo "Other";
+                                            }
+                                            else{
+                                                echo "Not mentioned";
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class='w3-section' style='padding-top:16px;'>
@@ -130,7 +143,7 @@
                     </div>
                     <div class='w3-col l8 m8 s8'>
                         <div class='w3-round w3-white kel-shadow' 
-                        style='margin-left:16px;'>
+                        style='margin-left:0px;'>
                             <div class='w3-bar w3-round w3-border-bottom w3-border-light-gray'
                             style='background-color:#f8f8f8'>
                                 <div class='w3-bar-item w3-text-green'
@@ -152,59 +165,40 @@
                                     <th>Date</th>
                                     <th>Complain</th>
                                     <th>Remaining Payment</th>
+                                    <th>Operations</th>
                                 </tr>
-                                <tr>
-                                    <td>Alfreds Futterkiste</td>
-                                    <td>Maria Anders</td>
-                                    <td>Germany</td>
-                                </tr>
-                                <tr>
-                                    <td>Berglunds snabbköp</td>
-                                    <td>Christina Berglund</td>
-                                    <td>Sweden</td>
-                                </tr>
-                                <tr>
-                                    <td>Centro comercial Moctezuma</td>
-                                    <td>Francisco Chang</td>
-                                    <td>Mexico</td>
-                                </tr>
-                                <tr>
-                                    <td>Ernst Handel</td>
-                                    <td>Roland Mendel</td>
-                                    <td>Austria</td>
-                                </tr>
-                                <tr>
-                                    <td>Island Trading</td>
-                                    <td>Helen Bennett</td>
-                                    <td>UK</td>
-                                </tr>
-                                <tr>
-                                    <td>Königlich Essen</td>
-                                    <td>Philip Cramer</td>
-                                    <td>Germany</td>
-                                </tr>
-                                <tr>
-                                    <td>Laughing Bacchus Winecellars</td>
-                                    <td>Yoshi Tannamuri</td>
-                                    <td>Canada</td>
-                                </tr>
-                                <tr>
-                                    <td>Magazzini Alimentari Riuniti</td>
-                                    <td>Giovanni Rovelli</td>
-                                    <td>Italy</td>
-                                </tr>
-                                <tr>
-                                    <td>North/South</td>
-                                    <td>Simon Crowther</td>
-                                    <td>UK</td>
-                                </tr>
-                                <tr>
-                                    <td>Paris spécialités</td>
-                                    <td>Marie Bertrand</td>
-                                    <td>France</td>
-                                </tr>
+                                <?php
 
+                                    while($visit = $visits->fetch_assoc()){
+                                ?>
+                                <tr>
+                                    <td>
+                                        <?php 
+                                            $d = strtotime($visit['v_timing']);
+                                            echo date("d M, Y (h:i a)", $d);
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $visit['v_complain'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $visit['v_unpaid']; ?> <span class='w3-small'> units </span>
+                                    </td>
+                                    <td>
+                                        <button class='w3-button kel-hover w3-round w3-red'
+                                        title='Remove visit'> 
+                                            <i class='fa fa-times'></i>
+                                        </button>
+                                        <button class='w3-button kel-hover w3-round w3-blue'
+                                        title='View visit'> 
+                                            <i class='fa fa-eye'></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <?php
+                                    }
 
+                                ?> 
                                 </table>
                             </div>
                         </div>
