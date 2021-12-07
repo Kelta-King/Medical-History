@@ -19,6 +19,11 @@
             require_once("../DB/dbconnect.php");
             
             // Data of the page
+            $query = "SELECT * FROM family";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+
+            $families = $stmt->get_result();
             
             $conn->close();
 			unset($_SESSION['db_join']);

@@ -89,17 +89,21 @@
                                         Family 
                                         <div class='w3-right w3-text-dark-gray kel-hover'>
                                             <input type="checkbox" style='cursor:pointer;' id='new_family_check'
-                                            onclick='addFamilyCheck()' checked> 
+                                            onclick='addFamilyCheck()'> 
                                             <label for="new_family_check" style='cursor:pointer;'> New family? </label>
                                         </div>
                                     </div>
                                     <Select type="text" class='w3-input w3-round w3-border' 
-                                    style='padding:10px 4px;' id='family' disabled>
+                                    style='padding:10px 4px;' id='family'>
                                         <option value="" selected disabled> Select Patient Family </option>
                                     <?php
+                                        $f_id = 0;
+                                        if(isset($_GET['family'])){
+                                            $f_id = $_GET['family'];
+                                        }
                                         while($family = $families->fetch_assoc()){
                                     ?>
-                                        <option value="<?php echo $family['f_id'] ?>">
+                                        <option value="<?php echo $family['f_id'] ?>" <?php if($f_id == $family['f_id']){ echo "selected"; } ?>>
                                             <?php echo $family['f_name'] ?> (<?php echo $family['f_members'] ?>)
                                         </option>
                                     <?php

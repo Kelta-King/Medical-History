@@ -12,7 +12,7 @@ if(isset($_GET['value'])){
         header("Location:patient".$url_extension."?id=".$value[1]);
     }
     else if($value[0] == "f"){
-
+        header("Location:family".$url_extension."?id=".$value[1]);
     }
     else{
         die("Something went wrong");
