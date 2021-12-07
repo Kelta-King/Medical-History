@@ -1,16 +1,37 @@
 
 const timeinput = () => {
+    
     const checkbox = document.getElementById("current_timing_check");
     const time_box = document.getElementById("time_box");
+    
     if(checkbox.checked){
         time_box.style.display = "none";
     }
     else{
         time_box.style.display = "block";
     }
+
+}
+
+const addFamilyCheck = () => {
+    
+    const checkbox = document.getElementById("new_family_check");
+    const field = document.getElementById("family");
+
+    if(checkbox.checked){
+        field.disabled = true;
+    }
+    else{
+        field.disabled = false;
+    }
+
 }
 
 const addPatient = () => {
+
+    if(!confirm("Want to add thia patient?")){
+        return false;
+    }
 
     // Personal details
     const name = document.getElementById("patient_name");
@@ -147,7 +168,7 @@ const addPatient = () => {
             console.log(this.responseText);
             if (!errorCheck(this.responseText)) {
                 alert(this.responseText);
-                location.reload();
+                window.location.href += "?success=Patient Added Successfully";
             }
             endLoader();
         }

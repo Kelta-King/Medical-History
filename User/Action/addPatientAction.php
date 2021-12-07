@@ -49,11 +49,19 @@ if(isset($_SESSION['login_admin'])){
             $family = $conn->insert_id;
             
         }
-
-        if($family == ""){
+        else if($data->new_family == ""){
             $family = null;
         }
-        
+        else if(is_numeric($data->new_family) == 1){
+            $query = "UPDATE family SET f_members = f_members + 1 WHERE f_id = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("i", $data->new_family);
+            $stmt->execute();
+        }
+        else{
+            die("Something went wrong. Non integer value received for family.");
+        }
+
         $query = "INSERT INTO patients (p_name, p_age, p_gender, p_address, p_mobile_no, p_family) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("sisssi", $data->name, $data->age, $data->gender, $data->address, $data->mobile_number, $family);

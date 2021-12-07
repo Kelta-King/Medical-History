@@ -19,6 +19,15 @@
         <div style='height:80px;'>
             <!-- Blank space for top bar -->
         </div>
+        <?php
+            if(isset($_GET['success'])){
+        ?>
+            <div class="w3-container w3-border w3-border-green w3-pale-green w3-round w3-padding w3-center w3-text-teal">
+                <?php echo $_GET['success'] ?>
+            </div>
+        <?php
+            }
+        ?>
         <div class='w3-light-gray w3-padding'>
             <div class='w3-center w3-xlarge w3-padding w3-margin-top'>
                 Add Patient
@@ -79,14 +88,23 @@
                                     <div style='padding:8px 0px;'> 
                                         Family 
                                         <div class='w3-right w3-text-dark-gray kel-hover'>
-                                            <input type="checkbox" style='cursor:pointer;' id='new_family_check'> 
+                                            <input type="checkbox" style='cursor:pointer;' id='new_family_check'
+                                            onclick='addFamilyCheck()' checked> 
                                             <label for="new_family_check" style='cursor:pointer;'> New family? </label>
                                         </div>
                                     </div>
                                     <Select type="text" class='w3-input w3-round w3-border' 
-                                    style='padding:10px 4px;' id='family'>
+                                    style='padding:10px 4px;' id='family' disabled>
                                         <option value="" selected disabled> Select Patient Family </option>
-                                        
+                                    <?php
+                                        while($family = $families->fetch_assoc()){
+                                    ?>
+                                        <option value="<?php echo $family['f_id'] ?>">
+                                            <?php echo $family['f_name'] ?> (<?php echo $family['f_members'] ?>)
+                                        </option>
+                                    <?php
+                                        }
+                                    ?>
                                     </select>
                                 </div>
                             </div>

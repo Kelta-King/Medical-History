@@ -1,4 +1,5 @@
-<div class="w3-bar w3-top w3-large w3-white w3-card" style="z-index:4;padding-top:16px;padding-bottom:16px;">
+
+    <div class="w3-bar w3-top w3-large w3-white w3-card" style="z-index:4;padding-top:16px;padding-bottom:16px;">
         <button class="w3-bar-item w3-button w3-hide-large w3-hover-none kel-hover w3-hover-text-black" 
         onclick="nav_open();" id='bars'><i class="fa fa-bars"></i></button>
         <div class='w3-hide-small w3-hide-medium' style='width:300px;'></div>
