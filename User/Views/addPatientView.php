@@ -131,17 +131,23 @@
                             </div>
                         </div>
                         <div class='w3-section' style='padding:4px;' >
-                            <div style='padding:8px 0px;'> Complain<span class='w3-text-red'>*</span> </div>
+                            <div style='padding:8px 0px;'> Complain<span class='w3-text-red'>*</span> 
+                            <span class='fa fa-microphone' onclick="audioToTextInInput('complain')"></span>
+                            </div>
                             <textarea id="complain" class="w3-input w3-border w3-round" 
                             rows="2" placeholder="Complain of patient">sample complain</textarea>
                         </div>
                         <div class='w3-section' style='padding:4px;' >
-                            <div style='padding:8px 0px;'> Diagnose<span class='w3-text-red'>*</span> </div>
+                            <div style='padding:8px 0px;'> Diagnose<span class='w3-text-red'>*</span>
+                            <span class='fa fa-microphone' onclick="audioToTextInInput('diagnose')"></span> 
+                            </div>
                             <textarea id="diagnose" class="w3-input w3-border w3-round" 
                             rows="2" placeholder="Diagnose of patient">sample diagnose</textarea>
                         </div>
                         <div class='w3-section' style='padding:4px;' >
-                            <div style='padding:8px 0px;'> Treatment<span class='w3-text-red'>*</span> </div>
+                            <div style='padding:8px 0px;'> Treatment<span class='w3-text-red'>*</span> 
+                            <span class='fa fa-microphone' onclick="audioToTextInInput('treatment')"></span>
+                            </div>
                             <textarea id="treatment" class="w3-input w3-border w3-round" 
                             rows="2" placeholder="Treatment of patient">sample treatment</textarea>
                         </div>

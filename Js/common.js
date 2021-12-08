@@ -299,3 +299,28 @@ const showError = (msg = '', id = 'err') => {
     </div>
     `;
 }
+
+const audioToTextInInput = (input_id) => {
+
+	var speech = true;
+	window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+	const recognition = new SpeechRecognition();
+	recognition.interimResults = true;
+
+	recognition.addEventListener('result', e => {
+		const transcript = Array.from(e.results)
+			.map(result => result[0])
+			.map(result => result.transcript)
+			.join('')
+
+		document.getElementById(input_id).value = transcript;
+		console.log(transcript);
+	});
+		
+	if (speech == true) {
+		recognition.start();
+		recognition.addEventListener('end', console.log("Done"));
+	}
+
+}

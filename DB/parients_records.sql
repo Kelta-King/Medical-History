@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2021 at 04:27 AM
+-- Generation Time: Dec 08, 2021 at 03:43 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -34,6 +34,13 @@ CREATE TABLE `admin` (
   `admin_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `admin_email`, `admin_pass`, `admin_name`) VALUES
+(1, 'keltaking9999@gmail.com', '$2y$12$Zt3gD2oF9oW1/6pjpmtBje7PS2jGWsD4fvlliy6jf50sh2jCSbIwW', 'kushang shah1');
+
 -- --------------------------------------------------------
 
 --
@@ -43,9 +50,17 @@ CREATE TABLE `admin` (
 CREATE TABLE `family` (
   `f_id` int(11) NOT NULL,
   `f_name` varchar(500) DEFAULT NULL,
-  `f_main` varchar(255) DEFAULT NULL,
-  `f_members` int(11) DEFAULT NULL
+  `f_members` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `family`
+--
+
+INSERT INTO `family` (`f_id`, `f_name`, `f_members`) VALUES
+(1, 'Sardar patel and Family', 2),
+(2, 'Mahesh Bhatt and Family', 1),
+(3, 'Yogesh Bhatt and Family', 1);
 
 -- --------------------------------------------------------
 
@@ -57,11 +72,23 @@ CREATE TABLE `patients` (
   `p_id` int(11) NOT NULL,
   `p_name` varchar(500) DEFAULT NULL,
   `p_age` int(11) DEFAULT NULL,
-  `p_gender` enum('M','F') DEFAULT NULL,
+  `p_gender` enum('M','F','O') DEFAULT NULL,
   `p_address` varchar(2000) DEFAULT NULL,
   `p_mobile_no` varchar(255) DEFAULT NULL,
   `p_family` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `patients`
+--
+
+INSERT INTO `patients` (`p_id`, `p_name`, `p_age`, `p_gender`, `p_address`, `p_mobile_no`, `p_family`) VALUES
+(1, 'Sardar patel', 6, 'M', 'sample', '2345678899', 1),
+(2, 'Sardarbhai patel', 60, 'M', 'sample', '2345678899', 1),
+(3, 'Sardar patel', 6, 'M', 'sample', '2345678899', NULL),
+(4, 'Sardar patel', 6, 'M', 'sample', '2345678899', NULL),
+(5, 'Mahesh Bhatt', 45, 'M', 'Chiloda, Gandhinagar', '2345678899', 2),
+(6, 'Yogesh Bhatt', 32, 'M', 'Pratya', '2345678899', 3);
 
 -- --------------------------------------------------------
 
@@ -71,7 +98,7 @@ CREATE TABLE `patients` (
 
 CREATE TABLE `visits` (
   `v_id` int(11) NOT NULL,
-  `v_timing` time DEFAULT NULL,
+  `v_timing` timestamp NULL DEFAULT current_timestamp(),
   `v_complain` varchar(1000) DEFAULT NULL,
   `v_diagnose` varchar(1000) DEFAULT NULL,
   `v_treatment` varchar(1000) DEFAULT NULL,
@@ -81,6 +108,18 @@ CREATE TABLE `visits` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `visits`
+--
+
+INSERT INTO `visits` (`v_id`, `v_timing`, `v_complain`, `v_diagnose`, `v_treatment`, `v_paid`, `v_unpaid`, `v_patient`) VALUES
+(1, '2021-12-07 06:51:13', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 1),
+(2, '2021-12-07 06:51:26', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 2),
+(3, '2021-12-07 06:59:04', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 3),
+(4, '2021-12-07 06:59:11', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 4),
+(5, '2021-12-07 15:26:36', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 5),
+(6, '2021-12-01 08:26:34', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 6);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -88,13 +127,15 @@ CREATE TABLE `visits` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin_id`);
+  ADD PRIMARY KEY (`admin_id`),
+  ADD UNIQUE KEY `admin_email` (`admin_email`);
 
 --
 -- Indexes for table `family`
 --
 ALTER TABLE `family`
-  ADD PRIMARY KEY (`f_id`);
+  ADD PRIMARY KEY (`f_id`),
+  ADD UNIQUE KEY `f_name` (`f_name`);
 
 --
 -- Indexes for table `patients`
@@ -118,19 +159,25 @@ ALTER TABLE `visits`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `family`
+--
+ALTER TABLE `family`
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `v_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `v_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
