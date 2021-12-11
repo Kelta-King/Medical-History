@@ -109,7 +109,6 @@
                         <?php if($previous_disabled){ echo "disabled"; } ?> title='Previous'>
                             <i class='fa fa-arrow-left'></i>
                         </button>
-                        </a>
                     <?php
                         // Incorrect page value provided
                         if($total_buttons < $page){
@@ -159,7 +158,8 @@
                             }
                             elseif($distance_from_last < 2){
                     ?>
-                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='1'>
+                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='1'
+                        onclick="window.location.href='searchPatient<?php echo $url_extension ?>?page=1'">
                             1
                         </button>
                         <span class='w3-center' style='width:30px;'>...</span>

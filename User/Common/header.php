@@ -21,6 +21,18 @@
     style='z-index:9;margin-top:75px;margin-right:0px;display:none;position: fixed;'>
         <div class='w3-round w3-white w3-padding w3-card'>
             <div class='w3-bar-block'>
+                <a href="searchPatient<?php echo $url_extension ?>"
+                style='text-decoration:none;'>
+                    <div class="w3-bar-item w3-button w3-hover-none"> 
+                        <i class='fa fa-search' style='padding-right:8px;'></i> Search patient
+                    </div>
+                </a>
+                <a href="searchFamily<?php echo $url_extension ?>"
+                style='text-decoration:none;'>
+                    <div class="w3-bar-item w3-button w3-hover-none"> 
+                        <i class='fa fa-users' style='padding-right:8px;'></i> Search family 
+                    </div>
+                </a>
                 <a href="passwordChange<?php echo $url_extension ?>"
                 style='text-decoration:none;'>
                     <div class="w3-bar-item w3-button w3-hover-none"> 
