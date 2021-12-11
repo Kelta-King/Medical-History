@@ -46,7 +46,15 @@
             </div>
             <hr style='border-bottom:0.5px solid gray;'>
             <div class='w3-container' style=''>
-                <div class='w3-white w3-round' style='padding:32px 16px;'>
+                <div class='w3-white w3-round' style='padding:16px 16px 32px 16px;'>
+                    <div class='w3-row' style='padding-bottom:32px;'>
+                        <div class='w3-col l10 m10 s8'>
+                            <input type="text" placeholder='Search family...' class='w3-input w3-round w3-border'>
+                        </div>
+                        <div class='w3-col l2 m2 s4'>
+                            <button class="w3-input w3-button w3-round w3-blue kel-hover"> <i class='fa fa-search'></i> </button>
+                        </div>
+                    </div>
                     <table id='members_table' class='w3-padding'>
                         <tr>
                             <th>Id</th>
@@ -83,9 +91,90 @@
 
                                 ?>
                     </table>
+                    <div class='w3-center w3-margin-top'>
+                    <?php
+
+                        $page = 3;
+                        $number_per_page = 5;
+                        $total_entries = 39;
+
+                        $total_buttons = (int)($total_entries/$number_per_page);
+                        echo $total_buttons;
+                        $previous_disabled = false;
+                        $next_disabled = false;
+
+                        if($page == 1){
+                            $previous_disabled = true;
+                        }
+                        if($page == $total_buttons){
+                            $next_disabled = true;
+                        }
+                        
+                    ?>
+                        <button class='w3-button w3-green w3-round kel-hover'
+                        <?php if($previous_disabled){ echo "disabled"; } ?> title='Previous'>
+                            <i class='fa fa-arrow-left'></i>
+                        </button>
+                    <?php
+                        // Incorrect page value provided
+                        if($total_buttons < $page){
+
+                        }
+                        // If total buttons are less than or equal to 5
+                        elseif($total_buttons <= 5){
+                            // Display every buttons
+                            for ($i=1; $i <= $total_buttons; $i++) { 
+                    ?>
+                        <button class='w3-button <?php if($i == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $i ?>'>
+                            <?php echo $i ?>
+                        </button>
+                    <?php
+                            }
+                        }
+                        // else if entries are more than 5
+                        else{
+                            // Display total 5 buttons.
+                            // First and last.
+                            // page's next and previous buttons
+                            if($page > 2){
+                    ?>
+                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo '1' ?>'>
+                            1
+                        </button>
+                        <span class='w3-center' style='width:30px;'>...</span>
+                    <?php
+                            }
+                    ?>  
+                        <button class='w3-button w3-round kel-hover' title='<?php echo $page-1; ?>'>
+                            <?php echo $page-1; ?>
+                        </button>
+                        <button class='w3-button w3-border w3-round kel-hover' title='<?php echo $page ?>'>
+                            <?php echo $page; ?>
+                        </button>
+                        <button class='w3-button w3-round kel-hover' title='<?php echo $page+1; ?>'>
+                            <?php echo $page+1; ?>
+                        </button>
+                    <?php
+                            if($page < ($total_buttons-1)){
+                    ?>
+                        <span class='w3-center' style='width:30px;'>...</span>
+                        
+                        <button class='w3-button <?php if($total_buttons == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons ?>'>
+                            <?php echo $total_buttons ?>
+                        </button>
+                    <?php
+                            }
+                        }
+
+                    ?>  
+                        <button class='w3-button w3-green w3-round kel-hover'
+                        <?php if($next_disabled){ echo "disabled"; } ?> title='Next'>
+                            <i class='fa fa-arrow-right'></i>
+                        </button>
+                        
+                    </div>
                 </div>
             </div>
-            <hr style='border-bottom:0.5px solid gray;'>
             <hr style='border-bottom:0.5px solid gray;'>
             <div class='w3-container w3-center w3-padding'>
                 &reg; Patients Record management system By Kushang Shah

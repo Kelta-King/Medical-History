@@ -3,8 +3,11 @@
         <button class="w3-bar-item w3-button w3-hide-large w3-hover-none kel-hover w3-hover-text-black" 
         onclick="nav_open();" id='bars'><i class="fa fa-bars"></i></button>
         <div class='w3-hide-small w3-hide-medium' style='width:300px;'></div>
-        <div class='w3-bar-item w3-large w3-text-dark-gray' style='margin-left:300px;'>
+        <div class='w3-bar-item w3-text-dark-gray w3-hide-small w3-hide-medium' style='margin-left:300px;'>
             Patient Records Management System
+        </div>
+        <div class='w3-bar-item w3-text-dark-gray w3-hide-large'>
+            Patient Records Management <span class='w3-hide-small'> System </span>
         </div>
         <div class="w3-bar-item w3-right w3-border-left"
         style='padding:8px 16px 8px 32px;margin-right:32px;'
