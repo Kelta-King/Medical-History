@@ -94,12 +94,6 @@
                     <div class='w3-center w3-margin-top'>
                     <?php
 
-                        $page = 15;
-                        $number_per_page = 5;
-                        $total_entries = 89;
-
-                        $total_buttons = (int)($total_entries/$number_per_page);
-
                         $previous_disabled = false;
                         $next_disabled = false;
 
@@ -111,10 +105,11 @@
                         }
                         
                     ?>
-                        <button class='w3-button w3-green w3-round kel-hover'
+                        <button class='w3-button w3-green w3-round kel-hover' onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $page-1 ?>'"
                         <?php if($previous_disabled){ echo "disabled"; } ?> title='Previous'>
                             <i class='fa fa-arrow-left'></i>
                         </button>
+                        </a>
                     <?php
                         // Incorrect page value provided
                         if($total_buttons < $page){
@@ -125,7 +120,8 @@
                             // Display every buttons
                             for ($i=1; $i <= $total_buttons; $i++) { 
                     ?>
-                        <button class='w3-button <?php if($i == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $i ?>'>
+                        <button class='w3-button <?php if($i == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $i ?>'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $i ?>'">
                             <?php echo $i ?>
                         </button>
                     <?php
@@ -142,17 +138,21 @@
                             // echo $distance_from_last."<br>";
                             if($distance_from_first < 3){
                     ?>
-                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='1'>
+                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='1'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=1'">
                             1
                         </button>
-                        <button class='w3-button <?php if(2 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='2'>
+                        <button class='w3-button <?php if(2 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='2'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=2'">
                             2
                         </button>
-                        <button class='w3-button <?php if(3 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='3'>
+                        <button class='w3-button <?php if(3 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='3'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=3'">
                             3
                         </button>
                         <span class='w3-center' style='width:30px;'>...</span>
-                        <button class='w3-button <?php if($total_buttons == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons ?>'>
+                        <button class='w3-button <?php if($total_buttons == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons ?>'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $total_buttons ?>'">
                             <?php echo $total_buttons ?>
                         </button>
                     <?php
@@ -163,20 +163,24 @@
                             1
                         </button>
                         <span class='w3-center' style='width:30px;'>...</span>
-                        <button class='w3-button <?php if($total_buttons-2 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons-2 ?>'>
+                        <button class='w3-button <?php if($total_buttons-2 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons-2 ?>'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $total_buttons-2 ?>'">
                             <?php echo $total_buttons-2 ?>
                         </button>
-                        <button class='w3-button <?php if($total_buttons-1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons-1 ?>'>
+                        <button class='w3-button <?php if($total_buttons-1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons-1 ?>'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $total_buttons-1 ?>'">
                             <?php echo $total_buttons-1 ?>
                         </button>
-                        <button class='w3-button <?php if($total_buttons == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons ?>'>
+                        <button class='w3-button <?php if($total_buttons == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons ?>'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $total_buttons ?>'">
                             <?php echo $total_buttons ?>
                         </button>
                     <?php
                             }
                             else{
                     ?>
-                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='1'>
+                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='1'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=1'">
                             1
                         </button>
                         <?php
@@ -186,13 +190,16 @@
                         <?php
                                 }
                         ?>
-                        <button class='w3-button w3-round kel-hover' title='<?php echo $page-1 ?>'>
+                        <button class='w3-button w3-round kel-hover' title='<?php echo $page-1 ?>'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $page-1; ?>'">
                             <?php echo $page-1 ?>
                         </button>
-                        <button class='w3-button w3-border w3-round kel-hover' title='<?php echo $page ?>'>
+                        <button class='w3-button w3-border w3-round kel-hover' title='<?php echo $page ?>'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $page; ?>'">
                             <?php echo $page ?>
                         </button>
-                        <button class='w3-button w3-round kel-hover' title='<?php echo $page+1 ?>'>
+                        <button class='w3-button w3-round kel-hover' title='<?php echo $page+1 ?>'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $page+1; ?>'">
                             <?php echo $page+1 ?>
                         </button>
                         <?php
@@ -202,7 +209,8 @@
                         <?php
                                 }
                         ?>
-                        <button class='w3-button <?php if($total_buttons == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons ?>'>
+                        <button class='w3-button <?php if($total_buttons == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons ?>'
+                        onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $total_buttons ?>'">
                             <?php echo $total_buttons ?>
                         </button>
                     <?php
@@ -211,7 +219,7 @@
                         }
 
                     ?>  
-                        <button class='w3-button w3-green w3-round kel-hover'
+                        <button class='w3-button w3-green w3-round kel-hover' onclick="window.location.href='searchFamily<?php echo $url_extension ?>?page=<?php echo $page+1 ?>'"
                         <?php if($next_disabled){ echo "disabled"; } ?> title='Next'>
                             <i class='fa fa-arrow-right'></i>
                         </button>

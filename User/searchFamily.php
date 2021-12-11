@@ -19,12 +19,40 @@
             require_once("../DB/dbconnect.php");
             
             // Data of the page
-            $query = "SELECT * FROM family";
+            $page = 1;
+            $number_per_page = 1;
+            // $total_entries = 89;
+            
+            if(isset($_GET['page'])){
+                $page = (int)$_GET['page'];
+            }
+            $start = ($page-1)*$number_per_page;
+        
+            $query = "SELECT * FROM family LIMIT ?, ?";
             $stmt = $conn->prepare($query);
+            $stmt->bind_param('ii', $start, $number_per_page);
             $stmt->execute();
 
             $families = $stmt->get_result();
-            
+
+            $query = "SELECT COUNT(f_id) FROM family";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            $data = $stmt->get_result()->fetch_assoc();
+            $total_entries = $data['COUNT(f_id)'];
+
+            $fraction = ($total_entries/$number_per_page);
+            $int_convert = (int)$fraction;
+
+            $total_buttons = $int_convert;
+            if(($fraction-$int_convert) > 0){
+                $total_buttons += 1;
+            }
+
+            if($page <= 0 || $page > $total_buttons){
+                header("Location:searchFamily".$url_extension);
+            }
+
             $conn->close();
 			unset($_SESSION['db_join']);
             require("Views/searchFamilyView.php");
