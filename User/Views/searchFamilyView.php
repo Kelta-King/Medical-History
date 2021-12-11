@@ -94,12 +94,12 @@
                     <div class='w3-center w3-margin-top'>
                     <?php
 
-                        $page = 3;
+                        $page = 15;
                         $number_per_page = 5;
-                        $total_entries = 39;
+                        $total_entries = 89;
 
                         $total_buttons = (int)($total_entries/$number_per_page);
-                        echo $total_buttons;
+
                         $previous_disabled = false;
                         $next_disabled = false;
 
@@ -136,34 +136,78 @@
                             // Display total 5 buttons.
                             // First and last.
                             // page's next and previous buttons
-                            if($page > 2){
+                            $distance_from_first = $page;
+                            $distance_from_last = $total_buttons - $page;
+                            // echo "<br>".$distance_from_first."<br>";
+                            // echo $distance_from_last."<br>";
+                            if($distance_from_first < 3){
                     ?>
-                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo '1' ?>'>
+                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='1'>
                             1
                         </button>
+                        <button class='w3-button <?php if(2 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='2'>
+                            2
+                        </button>
+                        <button class='w3-button <?php if(3 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='3'>
+                            3
+                        </button>
                         <span class='w3-center' style='width:30px;'>...</span>
-                    <?php
-                            }
-                    ?>  
-                        <button class='w3-button w3-round kel-hover' title='<?php echo $page-1; ?>'>
-                            <?php echo $page-1; ?>
-                        </button>
-                        <button class='w3-button w3-border w3-round kel-hover' title='<?php echo $page ?>'>
-                            <?php echo $page; ?>
-                        </button>
-                        <button class='w3-button w3-round kel-hover' title='<?php echo $page+1; ?>'>
-                            <?php echo $page+1; ?>
-                        </button>
-                    <?php
-                            if($page < ($total_buttons-1)){
-                    ?>
-                        <span class='w3-center' style='width:30px;'>...</span>
-                        
                         <button class='w3-button <?php if($total_buttons == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons ?>'>
                             <?php echo $total_buttons ?>
                         </button>
                     <?php
                             }
+                            elseif($distance_from_last < 2){
+                    ?>
+                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='1'>
+                            1
+                        </button>
+                        <span class='w3-center' style='width:30px;'>...</span>
+                        <button class='w3-button <?php if($total_buttons-2 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons-2 ?>'>
+                            <?php echo $total_buttons-2 ?>
+                        </button>
+                        <button class='w3-button <?php if($total_buttons-1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons-1 ?>'>
+                            <?php echo $total_buttons-1 ?>
+                        </button>
+                        <button class='w3-button <?php if($total_buttons == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons ?>'>
+                            <?php echo $total_buttons ?>
+                        </button>
+                    <?php
+                            }
+                            else{
+                    ?>
+                        <button class='w3-button <?php if(1 == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='1'>
+                            1
+                        </button>
+                        <?php
+                                if(($page-1) != 2){
+                        ?>
+                        <span class='w3-center' style='width:30px;'>...</span>
+                        <?php
+                                }
+                        ?>
+                        <button class='w3-button w3-round kel-hover' title='<?php echo $page-1 ?>'>
+                            <?php echo $page-1 ?>
+                        </button>
+                        <button class='w3-button w3-border w3-round kel-hover' title='<?php echo $page ?>'>
+                            <?php echo $page ?>
+                        </button>
+                        <button class='w3-button w3-round kel-hover' title='<?php echo $page+1 ?>'>
+                            <?php echo $page+1 ?>
+                        </button>
+                        <?php
+                                if(($page+1)+1 != $total_buttons){
+                        ?>
+                        <span class='w3-center' style='width:30px;'>...</span>
+                        <?php
+                                }
+                        ?>
+                        <button class='w3-button <?php if($total_buttons == $page){ echo "w3-border"; } ?> w3-round kel-hover' title='<?php echo $total_buttons ?>'>
+                            <?php echo $total_buttons ?>
+                        </button>
+                    <?php
+                            }
+
                         }
 
                     ?>  
