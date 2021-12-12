@@ -127,7 +127,14 @@
                                         Mobile Number:
                                     </div>
                                     <div class='kel-bold w3-text-dark-gray w3-large'>
-                                        268945332
+                                        <?php 
+                                            if(is_null($patient['p_mobile_no'])){
+                                                echo "Not provided";
+                                            }
+                                            else{
+                                                echo $patient['p_mobile_no'];
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class='w3-section' style='padding-top:16px;'>
@@ -163,7 +170,7 @@
                                 </div>
                                 <div class='w3-bar-item w3-right'
                                 style='padding:8px 24px;'>
-                                    <a href="">
+                                    <a href="addVisit<?php echo $url_extension ?>?id=<?php echo $patient_id ?>">
                                         <button class='w3-button w3-round w3-green kel-hover'>
                                             <i class='fa fa-plus'></i> Add Visit
                                         </button>

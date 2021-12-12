@@ -315,7 +315,6 @@ const audioToTextInInput = (input_id) => {
 			.join('')
 
 		document.getElementById(input_id).value = transcript;
-		console.log(transcript);
 	});
 		
 	if (speech == true) {
