@@ -38,7 +38,7 @@
                         die("Something went wrong1");
                     }
 
-                    $query = "SELECT v_id, v_timing, v_complain, v_paid, v_unpaid FROM visits WHERE v_patient = ?";
+                    $query = "SELECT v_id, v_timing, v_complain, v_paid, v_unpaid FROM visits WHERE v_patient = ? ORDER BY v_id DESC";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param('i', $patient_id);
                     $stmt->execute();

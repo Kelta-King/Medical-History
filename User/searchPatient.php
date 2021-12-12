@@ -27,7 +27,7 @@
             }
             $start = ($page-1)*$number_per_page;
         
-            $query = "SELECT p_id, p_name, p_age, f_name, f_id FROM (patients LEFT JOIN family ON patients.p_family = family.f_id) LIMIT ?, ?";
+            $query = "SELECT p_id, p_name, p_age, f_name, f_id FROM (patients LEFT JOIN family ON patients.p_family = family.f_id) ORDER BY p_id DESC LIMIT ?, ?";
             $stmt = $conn->prepare($query);
             $stmt->bind_param('ii', $start, $number_per_page);
             $stmt->execute();

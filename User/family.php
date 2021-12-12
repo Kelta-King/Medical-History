@@ -37,7 +37,7 @@
                         die("Something went wrong");
                     }
 
-                    $query = "SELECT * FROM patients WHERE p_family = ?";
+                    $query = "SELECT * FROM patients WHERE p_family = ? ORDER BY p_id DESC";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param('i', $family_id);
                     $stmt->execute();

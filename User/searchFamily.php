@@ -20,14 +20,14 @@
             
             // Data of the page
             $page = 1;
-            $number_per_page = 5;
+            $number_per_page = 1;
             
             if(isset($_GET['page'])){
                 $page = (int)$_GET['page'];
             }
             $start = ($page-1)*$number_per_page;
         
-            $query = "SELECT * FROM family LIMIT ?, ?";
+            $query = "SELECT * FROM family ORDER BY f_id DESC LIMIT ?, ?";
             $stmt = $conn->prepare($query);
             $stmt->bind_param('ii', $start, $number_per_page);
             $stmt->execute();

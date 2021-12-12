@@ -79,6 +79,8 @@
                         <div class='w3-section w3-center w3-large'>
                             Visit details
                         </div>
+                        <div class='w3-pale-red' id='err'>
+                        </div>
                         <div class='w3-section' style='padding:8px 4px;'>
                             <input type="checkbox" class='kel-hover' onclick='timeinput()' id="current_timing_check"
                                 checked>
@@ -129,7 +131,7 @@
                         </div>
                         <div class='w3-section w3-center'>
                             <button class='w3-button w3-green kel-hover w3-round'
-                            onclick='addVisit()'>
+                            onclick='addVisit(<?php echo $patient_id ?>)'>
                                 <i class='fa fa-plus'></i> Add Visit
                             </button>
                         </div>
