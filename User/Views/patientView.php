@@ -207,10 +207,12 @@
                                         title='Remove visit'> 
                                             <i class='fa fa-times'></i>
                                         </button>
+                                        <a href="visit<?php echo $url_extension ?>?patient=<?php echo $patient_id ?>&visit=<?php echo $visit['v_id'] ?>">
                                         <button class='w3-button kel-hover w3-round w3-blue'
                                         title='View visit'> 
                                             <i class='fa fa-eye'></i>
                                         </button>
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php
