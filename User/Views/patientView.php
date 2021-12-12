@@ -135,7 +135,18 @@
                                         Family:
                                     </div>
                                     <div class='kel-bold w3-text-dark-gray w3-large'>
-                                        Not provided
+                                        <?php
+                                            if(is_null($patient['f_name'])){
+                                                echo "Not provided";
+                                            }
+                                            else{
+                                        ?>
+                                        <a href="family<?php echo $url_extension ?>?id=<?php echo $patient['f_id'] ?>">
+                                            <?php echo $patient['f_name'] ?>
+                                        </a>
+                                        <?php
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

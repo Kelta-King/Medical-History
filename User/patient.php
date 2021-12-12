@@ -24,7 +24,7 @@
                 if(is_numeric($_GET['id']) == 1){
                     
                     $patient_id = (int)$_GET['id'];
-                    $query = "SELECT * FROM patients WHERE p_id = ?";
+                    $query = "SELECT patients.*, family.f_id, family.f_name FROM (patients LEFT JOIN family ON patients.p_family = family.f_id) WHERE patients.p_id = ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param('i', $patient_id);
                     $stmt->execute();
