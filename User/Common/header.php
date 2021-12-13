@@ -17,7 +17,7 @@
         
     </div>
     <!-- Dropdown for logout and account -->
-    <div class='w3-display-topright w3-padding' id='dropdown'
+    <div class='w3-display-topright w3-padding dropdown-menu' id='dropdown'
     style='z-index:9;margin-top:75px;margin-right:0px;display:none;position: fixed;'>
         <div class='w3-round w3-white w3-padding w3-card'>
             <div class='w3-bar-block'>
@@ -65,6 +65,7 @@
                 document.getElementById("dropdown").style.display = "block";
             }
         }
+        
     </script>
     <!-- Overlay effect when opening sidebar on small screens -->
     <div class="w3-overlay w3-hide-large w3-animate-opacity" 

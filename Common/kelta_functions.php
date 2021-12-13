@@ -27,7 +27,9 @@
 		</div>
 	</div>
 	<script>
-		
+		function openLogOutModal(){
+			document.getElementById("kelta_alert_box").style.display = "block";
+		}
 	</script>
 <?php
 	}

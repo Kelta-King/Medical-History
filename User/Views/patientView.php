@@ -204,7 +204,7 @@
                                     </td>
                                     <td>
                                         <button class='w3-button kel-hover w3-round w3-red'
-                                        title='Remove visit'> 
+                                        title='Remove visit' onclick="removeVisit(<?php echo $patient_id.','.$visit['v_id'] ?>)"> 
                                             <i class='fa fa-times'></i>
                                         </button>
                                         <a href="visit<?php echo $url_extension ?>?patient=<?php echo $patient_id ?>&visit=<?php echo $visit['v_id'] ?>">
@@ -232,6 +232,7 @@
             </div>
         </div>
     </div>
-
+    <script src="../Js/common.js"></script>
+    <script src="../Js/patient.js"></script>
 </body>
 </html>
