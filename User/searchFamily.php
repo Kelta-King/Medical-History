@@ -20,7 +20,7 @@
             
             // Data of the page
             $page = 1;
-            $number_per_page = 1;
+            $number_per_page = 4;
             
             if(isset($_GET['page'])){
                 $page = (int)$_GET['page'];

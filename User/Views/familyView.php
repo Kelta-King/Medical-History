@@ -79,7 +79,7 @@
                                 </div>
                                 <div class='w3-bar-item w3-right'
                                 style='padding:16px 24px;'>
-                                    <a href="">
+                                    <a href="editFamily<?php echo $url_extension ?>?id=<?php echo $family_id ?>">
                                         <i class='fa fa-pencil-square-o w3-large'></i>
                                     </a>
                                 </div>
@@ -148,8 +148,8 @@
                                     </td>
                                     <td>
                                         <button class='w3-button kel-hover w3-round w3-red'
-                                        title='Remove member from family'> 
-                                            <i class='fa fa-times'></i>
+                                        title='Remove member from family' onclick="removeMemberFromFamily(<?php echo $member['p_id'].', '.$family_id ?>)"> 
+                                            <i class='fa fa-minus '></i>
                                         </button>
                                         <a href="patient<?php echo $url_extension ?>?id=<?php echo $member['p_id'] ?>">
                                         <button class='w3-button kel-hover w3-round w3-blue'
@@ -176,6 +176,7 @@
             </div>
         </div>
     </div>
-
+    <script src="../Js/common.js"></script>
+    <script src="../Js/family.js"></script>
 </body>
 </html>

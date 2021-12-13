@@ -1,135 +1,34 @@
 
-const removeVisit = (patient_id, visit_id) => {
+const updateFamily = (f_id) => {
+
+    startLoader();
+
+    if(!confirm("Do you really want to update this family?")){
+        endLoader();
+        return false;
+    }
+
+    const name = document.getElementById("family_name");
+    const members = document.getElementById("family_members");
     
-    startLoader();
-
-    if(!confirm("Do you really want to remove this visit?")){
-        endLoader();
-        return false;
-    }
-
-    let obj = {
-        'patient_id': patient_id,
-        'visit_id': visit_id,
-    }
-    console.log(obj);
-
-    obj = window.btoa(JSON.stringify(obj));
-
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-
-        if (this.readyState == 4 && this.status == 200) {
-
-            console.log(this.responseText);
-            if (!errorCheck(this.responseText)) {
-                
-                alert(this.responseText);
-                
-                if(this.responseText == "Visit removed"){
-                    location.reload();
-                }
-
-            }
-            endLoader();
-        }
-
-    }
-
-    xhttp.open("POST", "Action/removeVisitAction" + extension, true)
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(obj);
-
-}
-
-
-const removePatient = (patient_id) => {
-    
-    startLoader();
-
-    if(!confirm("Do you really want to remove this patient?")){
-        endLoader();
-        return false;
-    }
-
-    let obj = {
-        'patient_id': patient_id,
-    }
-    console.log(obj);
-
-    obj = window.btoa(JSON.stringify(obj));
-
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-
-        if (this.readyState == 4 && this.status == 200) {
-
-            console.log(this.responseText);
-            if (!errorCheck(this.responseText)) {
-                
-                alert(this.responseText);
-                
-                if(this.responseText == "Patient removed"){
-                    location.reload();
-                }
-
-            }
-            endLoader();
-        }
-
-    }
-
-    xhttp.open("POST", "Action/removePatientAction" + extension, true)
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(obj);
-
-}
-
-const updatePatient = (patient_id) => {
-
-    startLoader();
-
-    if(!confirm("Do you really want to update this patient?")){
-        endLoader();
-        return false;
-    }
-
-    const name = document.getElementById("patient_name");
-    const age = document.getElementById("patient_age");
-    const gender = document.getElementById("patient_gender");
-    const address = document.getElementById("address");
-    const mobile_no = document.getElementById("mobile_number");
-
-    startLoader();
-
     if(name.value.trim() == ""){
         name.focus();
-        showError("Patient name is empty");
+        showError("Family name is empty");
 		endLoader();
 		return false;
     }
 
-    if(age.value.trim() == ""){
-        age.focus();
-        showError("Patient age is empty");
-		endLoader();
-		return false;
-    }
-
-    if(gender.value.trim() == ""){
-        gender.focus();
-        showError("Patient gender is empty");
+    if(members.value.trim() == ""){
+        members.focus();
+        showError("Family members is empty");
 		endLoader();
 		return false;
     }
 
     let obj = {
-        'patient_id': patient_id,
+        'family_id': f_id,
         'name':name.value,
-        'age':age.value,
-        'gender':gender.value,
-        'address':address.value,
-        'mobile_number':mobile_no.value,
+        'members':members.value,
     }
 
     console.log(obj);
@@ -146,7 +45,48 @@ const updatePatient = (patient_id) => {
                 
                 alert(this.responseText);
                 
-                if(this.responseText == "Patient updated"){
+                if(this.responseText == "Family updated"){
+                    window.location.href = "family"+extension+"?id="+f_id;
+                }
+
+            }
+            endLoader();
+        }
+
+    }
+
+    xhttp.open("POST", "Action/updateFamilyAction" + extension, true)
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(obj);
+    
+}
+
+const removeFamily = (family_id) => {
+
+    startLoader();
+
+    if(!confirm("Do you really want to remove family?")){
+        endLoader();
+        return false;
+    }
+
+    let obj = {
+        'family_id': family_id,
+    }
+
+    obj = window.btoa(JSON.stringify(obj));
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            console.log(this.responseText);
+            if (!errorCheck(this.responseText)) {
+                
+                alert(this.responseText);
+                
+                if(this.responseText == "Family removed"){
                     location.reload();
                 }
 
@@ -156,7 +96,49 @@ const updatePatient = (patient_id) => {
 
     }
 
-    xhttp.open("POST", "Action/updatePatientAction" + extension, true)
+    xhttp.open("POST", "Action/removeFamilyAction" + extension, true)
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(obj);
+
+}
+
+const removeMemberFromFamily = (patient_id, family_id) => {
+
+    startLoader();
+
+    if(!confirm("Do you really want to remove this member from family?")){
+        endLoader();
+        return false;
+    }
+
+    let obj = {
+        'family_id': family_id,
+        'patient_id':patient_id,
+    }
+
+    obj = window.btoa(JSON.stringify(obj));
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            console.log(this.responseText);
+            if (!errorCheck(this.responseText)) {
+                
+                alert(this.responseText);
+                
+                if(this.responseText == "Member removed"){
+                    location.reload();
+                }
+
+            }
+            endLoader();
+        }
+
+    }
+
+    xhttp.open("POST", "Action/removeFamilyMemberAction" + extension, true)
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(obj);
 

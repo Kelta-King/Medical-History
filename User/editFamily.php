@@ -19,6 +19,27 @@
             require_once("../DB/dbconnect.php");
             
             // Data of the page
+            $family_id = 0;
+            if(isset($_GET['id'])){
+                $family_id = (int)$_GET['id'];
+            }
+
+            if($family_id == 0){
+                header("Location:dashboard".$url_extension);
+            }
+
+            $query = "SELECT * FROM family WHERE f_id = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param('i', $family_id);
+            $stmt->execute();
+            
+            $data = $stmt->get_result();
+
+            if($data->num_rows <= 0){
+                die("Incorrect family");
+            }
+
+            $family = $data->fetch_assoc();
             
             $conn->close();
 			unset($_SESSION['db_join']);

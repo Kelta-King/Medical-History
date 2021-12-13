@@ -76,9 +76,16 @@
                                 <?php echo $family['f_members']  ?>
                             </td>
                             <td>
-                                <button class='w3-button kel-hover w3-round w3-green' title='Remove family'>
+                                <button class='w3-button kel-hover w3-round w3-red' title='Remove family'
+                                onclick="removeFamily(<?php echo $family['f_id']  ?>)">
+                                    <i class='fa fa-times'></i>
+                                </button>
+                                <a href="editFamily<?php echo $url_extension ?>?id=<?php echo $family['f_id'] ?>"
+                                style='text-decoration:none;'>
+                                <button class='w3-button kel-hover w3-round w3-green' title='Edit family'>
                                     <i class='fa fa-pencil'></i>
                                 </button>
+                                </a>
                                 <a href="family<?php echo $url_extension ?>?id=<?php echo $family['f_id'] ?>">
                                     <button class='w3-button kel-hover w3-round w3-blue' title='View Family'>
                                         <i class='fa fa-eye'></i>
@@ -233,7 +240,8 @@
             </div>
         </div>
     </div>
-
+    <script src="../Js/common.js"></script>
+    <script src="../Js/family.js"></script>
 </body>
 
 </html>
