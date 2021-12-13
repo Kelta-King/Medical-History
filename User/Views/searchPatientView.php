@@ -87,7 +87,8 @@
                         
                     </td>
                     <td>
-                        <button class='w3-button kel-hover w3-round w3-red' title='Remove Patient'>
+                        <button class='w3-button kel-hover w3-round w3-red' title='Remove Patient'
+                        onclick="removePatient(<?php echo $patient['p_id'] ?>)">
                             <i class='fa fa-times'></i>
                         </button>
                         <a href="patient<?php echo $url_extension ?>?id=<?php echo $patient['p_id'] ?>">
@@ -244,6 +245,7 @@
             </div>
         </div>
     </div>
-
+    <script src="../Js/common.js"></script>
+    <script src="../Js/patient.js"></script>
 </body>
 </html>
