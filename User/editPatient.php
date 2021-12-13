@@ -19,6 +19,33 @@
             require_once("../DB/dbconnect.php");
             
             // Data of the page
+            $patient_id = 0;
+            if($_GET['id']){
+                $patient_id = (int)$_GET['id'];
+            }
+
+            if($patient_id == 0){
+                die("Something went wrong");
+            }
+
+            $query = "SELECT * FROM (patients LEFT JOIN family ON patients.p_family = family.f_id) WHERE p_id = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param('i', $patient_id);
+            $stmt->execute();
+
+            $data = $stmt->get_result();
+
+            if($data->num_rows <= 0){
+                die("This patient does not exist");
+            }
+
+            $patient = $data->fetch_assoc();
+
+            $query = "SELECT * FROM family";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+
+            $families = $stmt->get_result();
             
             $conn->close();
 			unset($_SESSION['db_join']);

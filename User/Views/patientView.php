@@ -79,7 +79,7 @@
                                 </div>
                                 <div class='w3-bar-item w3-right'
                                 style='padding:16px 24px;'>
-                                    <a href="">
+                                    <a href="editPatient<?php echo $url_extension ?>?id=<?php echo $patient_id ?>">
                                         <i class='fa fa-pencil-square-o w3-large'></i>
                                     </a>
                                 </div>

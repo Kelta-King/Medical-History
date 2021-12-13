@@ -76,8 +76,8 @@
                                 <?php echo $family['f_members']  ?>
                             </td>
                             <td>
-                                <button class='w3-button kel-hover w3-round w3-red' title='Remove family'>
-                                    <i class='fa fa-times'></i>
+                                <button class='w3-button kel-hover w3-round w3-green' title='Remove family'>
+                                    <i class='fa fa-pencil'></i>
                                 </button>
                                 <a href="family<?php echo $url_extension ?>?id=<?php echo $family['f_id'] ?>">
                                     <button class='w3-button kel-hover w3-round w3-blue' title='View Family'>
