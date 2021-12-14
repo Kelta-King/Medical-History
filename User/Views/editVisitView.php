@@ -113,7 +113,8 @@
                         </div>
                     </div>
                     <div class='w3-section w3-center'>
-                        <button class='w3-button kel-hover w3-round w3-blue'>
+                        <button class='w3-button kel-hover w3-round w3-blue'
+                        onclick="updateVisit(<?php echo $patient_id.', '.$visit_id ?>)">
                             Update
                         </button>
                     </div>
