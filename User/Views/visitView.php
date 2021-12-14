@@ -73,6 +73,9 @@
                             $d = strtotime($visit['v_timing']);
                             echo date("d M, Y (h:i a)", $d);
                         ?>
+                        <a href="editVisit<?php echo $url_extension ?>?patient=<?php echo $patient_id ?>&visit=<?php echo $visit_id ?>">
+                        <span class="w3-margin-left fa fa-pencil-square-o"></span>
+                        </a>
                     </div>
                     <table id='visits_table'>
                         <tr>
