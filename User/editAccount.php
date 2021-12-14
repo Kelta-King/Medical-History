@@ -18,6 +18,8 @@
             $_SESSION['db_join'] = "yes, join";
             require_once("../DB/dbconnect.php");
             
+            $level = 1;
+            
             // Data of the page
             $query = "SELECT admin_email, admin_name FROM admin WHERE admin_id = ?";
             $stmt = $conn->prepare($query);

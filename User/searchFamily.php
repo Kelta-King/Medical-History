@@ -18,6 +18,8 @@
             $_SESSION['db_join'] = "yes, join";
             require_once("../DB/dbconnect.php");
             
+            $level = 1;
+            
             // Data of the page
             $page = 1;
             $number_per_page = 4;

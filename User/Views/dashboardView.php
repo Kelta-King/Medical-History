@@ -54,6 +54,9 @@
         <div style='height:80px;'>
             <!-- Blank space for top bar -->
         </div>
+        <?php
+            include_once("Common/structure_bar.php");
+        ?>
         <div class='w3-light-gray w3-padding'>
             <div class='w3-bar'>
                 <div class='w3-bar-item w3-right'>

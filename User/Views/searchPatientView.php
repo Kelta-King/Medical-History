@@ -89,7 +89,7 @@
                     <td>
                         <a href="editPatient<?php echo $url_extension ?>?id=<?php echo $patient['p_id'] ?>"
                         style='text-decoration:none;'>
-                            <button class='w3-button kel-hover w3-round w3-green' title='View Patient'>
+                            <button class='w3-button kel-hover w3-round w3-green' title='Edit Patient'>
                                 <i class='fa fa-pencil'></i>
                             </button>
                         </a>

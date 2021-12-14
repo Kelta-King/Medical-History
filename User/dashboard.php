@@ -19,6 +19,8 @@
             $admin_name = $data[0];
             $_SESSION['db_join'] = "yes, join";
             require_once("../DB/dbconnect.php");
+
+            $level = 1;
             
             // Data of the page
             $query = "SELECT COUNT(f_id) FROM family";

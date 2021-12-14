@@ -18,6 +18,8 @@
             $_SESSION['db_join'] = "yes, join";
             require_once("../DB/dbconnect.php");
             
+            $level = 3;
+
             // Data of the page
             // Getting patient id
             $patient_id = 1;

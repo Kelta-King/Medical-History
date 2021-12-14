@@ -37,6 +37,8 @@
                 header("Location:dashboard".$url_extension);
             }
             
+            $level = 3;
+            
             // Data of the page
             $query = "SELECT p_id, p_name, visits.* FROM (patients INNER JOIN visits ON patients.p_id = visits.v_patient) WHERE v_id = ? AND p_id = ?";
             $stmt = $conn->prepare($query);

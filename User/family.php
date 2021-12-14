@@ -18,6 +18,8 @@
             $_SESSION['db_join'] = "yes, join";
             require_once("../DB/dbconnect.php");
             
+            $level = 2;
+            
             // Data of the page
             if(isset($_GET['id'])){
                 if(is_numeric($_GET['id']) == 1){
