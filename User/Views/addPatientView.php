@@ -28,6 +28,9 @@
         <?php
             }
         ?>
+        <?php
+            include_once("Common/structure_bar.php");
+        ?>
         <div class='w3-light-gray w3-padding'>
             <div class='w3-center w3-xlarge w3-padding w3-margin-top'>
                 Add Patient

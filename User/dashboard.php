@@ -21,6 +21,8 @@
             require_once("../DB/dbconnect.php");
 
             $level = 1;
+            $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            $_SESSION['lvl1'] = array("name"=>"Dashboard", "url"=>$link);
             
             // Data of the page
             $query = "SELECT COUNT(f_id) FROM family";

@@ -38,6 +38,8 @@
             }
             
             $level = 3;
+            $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            $_SESSION['lvl3'] = array("name"=>"Edit Visit", "url"=>$link);
             
             // Data of the page
             $query = "SELECT p_id, p_name, visits.* FROM (patients INNER JOIN visits ON patients.p_id = visits.v_patient) WHERE v_id = ? AND p_id = ?";
