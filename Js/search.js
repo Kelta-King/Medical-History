@@ -197,26 +197,4 @@ const openLink = (index) => {
     console.log(index);
     window.location.href = "redirect"+extension+"?value="+index;
     
-    // let values = [];
-    // let nms = document.getElementsByClassName('vals');
-
-    // for(let i=0; i<nms.length; i++){
-    //     values.push(nms[i].id);
-    // }
-
-    // if(script_file == 'bare_acts'){
-    //     window.open(protocol_server+""+server_name+"/Bare_acts/"+values[index], "_self");
-    // }
-    // else{
-    //     window.open(script_file+"?user="+values[index], "_self");
-    // }
 }
-
-// var entries = [];
-// let nms = document.getElementsByClassName('vals');
-
-// for(let i=0; i<nms.length; i++){
-//     entries.push(nms[i].innerHTML);
-// }
-
-// autocomplete(document.getElementById("s_box"), entries);

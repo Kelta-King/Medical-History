@@ -130,7 +130,7 @@
         </div>
     </div>
     <script src="../Js/common.js"></script>
-    <script src="../Js/dashboard_search.js"></script>
+    <script src="../Js/search.js"></script>
     <script src="../Js/dashboard.js"></script>
 </body>
 </html>
