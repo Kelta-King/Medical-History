@@ -7,15 +7,15 @@
     ?>
     <style>
         .autocomplete {
-            /* position: relative;
-            display: inline-block; */
+            position: relative;
+            display: inline-block;
         }
         .autocomplete-items {
             position: absolute;
             border: 1px solid #d4d4d4;
             border-bottom: none;
             border-top: none;
-            z-index: 99;
+            z-index: 120;
             /*position the autocomplete items to be the same width as the container:*/
             top: 100%;
             left: 0;
@@ -85,16 +85,18 @@
             </div>
             <hr style='border-bottom:0.5px solid gray;'>
             <div class='w3-content w3-padding-64' style='max-width:700px;'>
-            <center>
-                <div class="autocomplete w3-row" style='max-width:700px;min-width:400px;'>
-                    <input type="text" name="search_field" id="search_field" value="sar"
-                    class='w3-col l10 m8 s8 w3-input w3-border w3-round' placeholder='Search patient or family...'>
-                    <button class="w3-col l2 m4 s4 w3-button w3-blue kel-hover w3-round"
-                    onclick="searchBoth()">
+            <div class="w3-row">
+                <div class="autocomplete w3-col l10 m8 s8 " style='max-width:700px;min-width:400px;'>
+                    <input type="text" name="search_field" id="search_field"
+                    class='w3-input w3-border w3-round' placeholder='Search patient or family...'>
+                </div>
+                <div class="w3-col l2 m4 s4">
+                    <button class="w3-button w3-blue kel-hover w3-round"
+                    onclick="searchBoth()" style="width:100%;">
                         <i class='fa fa-search'></i>
                     </button>
                 </div>
-            </center>
+            </div>
             </div>
             <div style='min-height:400px;'>
                 <div style='min-height:100px;'></div>

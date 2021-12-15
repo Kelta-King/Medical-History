@@ -1,4 +1,10 @@
 
+document.getElementById("search_field").addEventListener("keydown", function(evt){
+    if(evt.key == "Enter"){
+        searchBoth();
+    }
+});
+
 const searchBoth = () => {
 
     try 
