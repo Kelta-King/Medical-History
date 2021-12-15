@@ -1,13 +1,14 @@
 
 function autocomplete(inp, arr) {
+    console.log(arr);
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
     /*execute a function when someone writes in the text field:*/
-    inp.addEventListener("input", function(e) {
+    // inp.addEventListener("input", function(e) {
         
-        var a, b, i, val = this.value;
-        
+        var a, b, i, val = inp.value;
+        console.log(a);
         /*close any already open lists of autocompleted values*/
         closeAllLists();
         
@@ -19,11 +20,11 @@ function autocomplete(inp, arr) {
         
         /*create a DIV element that will contain the items (values):*/
         a = document.createElement("DIV");
-        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("id", inp.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
         
         /*append the DIV element as a child of the autocomplete container:*/
-        this.parentNode.appendChild(a);
+        inp.parentNode.appendChild(a);
         
         /*for each item in the array...*/
         for (i = 0; i < arr.length; i++) {
@@ -35,7 +36,7 @@ function autocomplete(inp, arr) {
                 let data = arr[i].split("#");
                 let id = data[0];
                 let string = data[1];
-
+                
                 /*create a DIV element for each matching element:*/
                 b = document.createElement("DIV");
                 let index = string.toUpperCase().indexOf(val.toUpperCase());
@@ -62,7 +63,7 @@ function autocomplete(inp, arr) {
                 a.appendChild(b);
             }
         }
-    });
+    // });
     
     /*execute a function presses a key on the keyboard:*/
     inp.addEventListener("keydown", function(e) {

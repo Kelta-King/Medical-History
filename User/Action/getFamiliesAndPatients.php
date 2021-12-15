@@ -14,11 +14,21 @@ if(isset($_SESSION['login_admin'])){
     $admin_id = $data[1];
     $admin_name = $data[0];
 
+    $str_json = file_get_contents('php://input');
+        
+    // Decoding json
+    $str_json = base64_decode($str_json);
+    $data = json_decode($str_json);
+        
+    $value = $data->value;
+
     $json_result = new stdClass;
 
     $family = array();
-	$query = "SELECT * FROM family";
+    $param = "%".$value."%";
+	$query = "SELECT * FROM family WHERE f_name LIKE ?";
     $stmt = $conn->prepare($query);
+    $stmt->bind_param('s', $param);
     $stmt->execute();
     $data = $stmt->get_result();
     
@@ -30,8 +40,9 @@ if(isset($_SESSION['login_admin'])){
     $json_result->families = $family;
 
     $patients = array();
-    $query = "SELECT p_id, p_name, p_age FROM patients";
+    $query = "SELECT p_id, p_name, p_age FROM patients WHERE p_name LIKE ?";
     $stmt = $conn->prepare($query);
+    $stmt->bind_param('s', $param);
     $stmt->execute();
     $data = $stmt->get_result();
     

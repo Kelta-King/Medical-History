@@ -20,6 +20,7 @@ require("Common/kelta_functions.php");
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class='' id='login_bg'>
     <div class='w3-content' style=''>
@@ -28,6 +29,9 @@ require("Common/kelta_functions.php");
                 <div class='w3-center'>
                     <h2 class='w3-text-gray'> <?php echo CLINIC_NAME ?> </h2>
                     <h3 class='w3-text-black'> Patient Record Management System  </h3>
+                    <div class="w3-center w3-jumbo w3-text-gray">
+                        <i class="fa fa-hospital-o "></i>
+                    </div>
                 </div>
                 <div class='w3-content w3-border-top' style='max-width:430px'>
                     <div class='w3-pale-red' id='err'>

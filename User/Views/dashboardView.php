@@ -7,8 +7,8 @@
     ?>
     <style>
         .autocomplete {
-            position: relative;
-            display: inline-block;
+            /* position: relative;
+            display: inline-block; */
         }
         .autocomplete-items {
             position: absolute;
@@ -84,11 +84,17 @@
                 </div>
             </div>
             <hr style='border-bottom:0.5px solid gray;'>
-            <div class='w3-content w3-padding-64' style='max-width:600px;'>
-                <div class="autocomplete" style='width:600px;'>
-                    <input type="text" name="search_field" id="search_field"
-                    class='w3-input w3-border w3-round' placeholder='Search patient or family...'>
+            <div class='w3-content w3-padding-64' style='max-width:700px;'>
+            <center>
+                <div class="autocomplete w3-row" style='max-width:700px;min-width:400px;'>
+                    <input type="text" name="search_field" id="search_field" value="sar"
+                    class='w3-col l10 m8 s8 w3-input w3-border w3-round' placeholder='Search patient or family...'>
+                    <button class="w3-col l2 m4 s4 w3-button w3-blue kel-hover w3-round"
+                    onclick="searchBoth()">
+                        <i class='fa fa-search'></i>
+                    </button>
                 </div>
+            </center>
             </div>
             <div style='min-height:400px;'>
                 <div style='min-height:100px;'></div>
