@@ -24,6 +24,39 @@
             padding-bottom: 12px;
             text-align: left;
         }
+        .autocomplete {
+            position: relative;
+            display: inline-block;
+        }
+        .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 120;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff; 
+            border-bottom: 1px solid #d4d4d4; 
+        }
+
+        /*when hovering an item:*/
+        .autocomplete-items div:hover {
+            background-color: #e9e9e9; 
+        }
+
+        /*when navigating through the items using the arrow keys:*/
+        .autocomplete-active {
+            background-color: DodgerBlue !important; 
+            color: #ffffff; 
+        }
     </style>
 </head>
 
@@ -51,11 +84,15 @@
             <div class='w3-container' style=''>
                 <div class='w3-white w3-round' style='padding:16px 16px 32px 16px;'>
                     <div class='w3-row' style='padding-bottom:32px;'>
-                        <div class='w3-col l10 m10 s8'>
-                            <input type="text" placeholder='Search family...' class='w3-input w3-round w3-border'>
+                        <div class='autocomplete w3-col l10 m10 s8'>
+                            <input type="text" placeholder='Search family...' 
+                            name="search_field" id="search_field" class='w3-input w3-round w3-border'>
                         </div>
                         <div class='w3-col l2 m2 s4'>
-                            <button class="w3-input w3-button w3-round w3-blue kel-hover"> <i class='fa fa-search'></i> </button>
+                            <button class="w3-input w3-button w3-round w3-blue kel-hover"
+                            onclick="searchFamily()"> 
+                                <i class='fa fa-search'></i> 
+                            </button>
                         </div>
                     </div>
                     <table id='members_table' class='w3-padding'>
@@ -244,6 +281,7 @@
         </div>
     </div>
     <script src="../Js/common.js"></script>
+    <script src="../Js/search.js"></script>
     <script src="../Js/family.js"></script>
 </body>
 
