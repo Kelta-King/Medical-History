@@ -128,7 +128,7 @@
                                 </div>
                                 <div class='w3-bar-item w3-right'
                                 style='padding:8px 0px;'>
-                                    <a href="addPatient<?php echo $url_extension ?>?family=<?php echo $family_id ?>">
+                                    <a href="assignMember<?php echo $url_extension ?>?family=<?php echo $family_id ?>">
                                         <button class='w3-button w3-round w3-teal kel-hover' title="Assign members">
                                             <i class='fa fa-exchange'></i>
                                         </button>
