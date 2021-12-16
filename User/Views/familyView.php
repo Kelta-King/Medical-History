@@ -119,10 +119,18 @@
                                     Family Memebrs
                                 </div>
                                 <div class='w3-bar-item w3-right'
-                                style='padding:8px 24px;'>
+                                style='padding:8px 16px 8px 8px;'>
                                     <a href="addPatient<?php echo $url_extension ?>?family=<?php echo $family_id ?>">
-                                        <button class='w3-button w3-round w3-blue kel-hover'>
+                                        <button class='w3-button w3-round w3-blue kel-hover' title="Add members">
                                             <i class='fa fa-plus'></i> Add Member
+                                        </button>
+                                    </a>
+                                </div>
+                                <div class='w3-bar-item w3-right'
+                                style='padding:8px 0px;'>
+                                    <a href="addPatient<?php echo $url_extension ?>?family=<?php echo $family_id ?>">
+                                        <button class='w3-button w3-round w3-teal kel-hover' title="Assign members">
+                                            <i class='fa fa-exchange'></i>
                                         </button>
                                     </a>
                                 </div>
