@@ -295,6 +295,6 @@
     </div>
     <script src="../Js/common.js"></script>
     <script src="../Js/search.js"></script>
-    <script src="../Js/patient.js"></script>
+    <script src="../Js/searchpatient.js"></script>
 </body>
 </html>

@@ -282,7 +282,7 @@
     </div>
     <script src="../Js/common.js"></script>
     <script src="../Js/search.js"></script>
-    <script src="../Js/family.js"></script>
+    <script src="../Js/searchfamily.js"></script>
 </body>
 
 </html>

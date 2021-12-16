@@ -19,6 +19,16 @@ let inputEmptyCheck = (id, error) => {
 
 }
 
+
+const showError = (msg = '', id = 'err') => {
+	alert(msg);
+    document.getElementById(id).innerHTML = `
+    <div class='w3-padding w3-center w3-text-red'>
+        ${msg}
+    </div>
+    `;
+}
+
 let startLoader = () => {
     
     let divP = document.createElement("DIV");
@@ -58,10 +68,17 @@ let errorCheck = (value, error = '') => {
         vals = value.split('Error:');
         console.log(vals[1]);
         alert(vals[1]);
-
+		
         if(error != ''){
             error.innerText = vals[1];
         }
+		else{
+			document.getElementById('err').innerHTML = `
+			<div class='w3-padding w3-center w3-text-red'>
+				${vals[1]}
+			</div>
+			`;
+		}
 
         return true;
     }
@@ -289,15 +306,6 @@ let mobileCheck = (number) => {
         return false;
     }
 	
-}
-
-const showError = (msg = '', id = 'err') => {
-	alert(msg);
-    document.getElementById(id).innerHTML = `
-    <div class='w3-padding w3-center w3-text-red'>
-        ${msg}
-    </div>
-    `;
 }
 
 const audioToTextInInput = (input_id) => {

@@ -71,11 +71,13 @@
                     </div>
                 </div>
                 <div class='w3-row w3-padding-16'>
+                    <div class='w3-pale-red' id='err'>
+                    </div>
                     <div class='w3-half'>
                         <div class='w3-round w3-white kel-shadow' style='margin-right:8px;padding:32px 8px;'>
                             <div> Patient Id </div>
                             <input type="text" name="patient_id" placeholder="Enter Patient Id"
-                            class="w3-input w3-round w3-border" id="patient_id">
+                            class="w3-input w3-round w3-border" id="patient_id" value="P.11">
                         </div>
                     </div>
                     <div class='w3-half'>
@@ -89,7 +91,7 @@
                 </div>
                 <div class="w3-center w3-padding">
                     <button class="w3-button w3-round w3-blue kel-hover"
-                    onclick="assign()">
+                    onclick="assignMember(<?php echo $family_id ?>)">
                         <i class='fa fa-exchange'></i> Assign
                     </button>
                 </div>
@@ -102,6 +104,6 @@
         </div>
     </div>
     <script src="../Js/common.js"></script>
-    <script src="../Js/family.js"></script>
+    <script src="../Js/assignmember.js"></script>
 </body>
 </html>

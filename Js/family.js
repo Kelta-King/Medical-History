@@ -1,10 +1,4 @@
 
-document.getElementById("search_field").addEventListener("keydown", function(evt){
-    if(evt.key == "Enter"){
-        searchFamily();
-    }
-});
-
 const updateFamily = (f_id) => {
 
     startLoader();
@@ -150,18 +144,31 @@ const removeMemberFromFamily = (patient_id, family_id) => {
 
 }
 
-const searchFamily = () => {
+const assignMember = () => {
 
     try 
     {
         startLoader();
 
-        const value = document.getElementById("search_field");
-
-        if(value.value.trim() == ""){
+        if(!confirm("Do you really want to assign this patient to this family?")){
             endLoader();
-            alert("Please write something to search.");
-            value.focus();
+            return false;
+        }
+
+        const p_id = document.getElementById("patient_id");
+        const f_id = document.getElementById("family_id");
+        
+        if(p_id.value.trim() == ""){
+            p_id.focus();
+            showError("Patient id is empty");
+            endLoader();
+            return false;
+        }
+
+        if(f_id.value.trim() == ""){
+            f_id.focus();
+            showError("Family id is empty");
+            endLoader();
             return false;
         }
 
@@ -180,7 +187,6 @@ const searchFamily = () => {
                 if(!errorCheck(this.responseText)){
                     let data = JSON.parse(this.responseText);
                     console.log(data);
-                    // entries = data['families'].concat();
                     autocomplete(document.getElementById("search_field"), data['families']);
                 }
                 
@@ -197,8 +203,4 @@ const searchFamily = () => {
         endLoader();
     }
 
-}
-
-const assignMember = () => {
-    
 }
