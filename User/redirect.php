@@ -5,7 +5,7 @@
     require("../Common/globals.php");
     require("../Common/kelta_functions.php");
 
-    if(isset($_SESSION['login_admin']))
+    if(isset($_SESSION['login_admin'])){
         
         // Used to redirect in family and patient search combined
         if(isset($_GET['value'])){
