@@ -35,21 +35,6 @@ const updateVisit = (patient_id, visit_id) => {
 		return false;
     }
 
-    if(paid.value.trim() == ""){
-        paid.focus();
-        showError("Patient Paid amount is empty");
-		endLoader();
-		return false;
-    }
-
-    if(unpaid.value.trim() == ""){
-        unpaid.focus();
-        showError("Patient Unpaid amount is empty");
-		endLoader();
-		return false;
-    }
-
-
     let obj = {
         'patient_id': patient_id,
         'visit_id': visit_id,

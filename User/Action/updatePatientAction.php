@@ -28,6 +28,10 @@ if(isset($_SESSION['login_admin'])){
         $address = $data->address;
         $mobile_number = $data->mobile_number;
 
+        if($gender == ""){
+            $gender = null;
+        }
+
         $query = "UPDATE patients SET p_name = ?, p_age = ?, p_gender = ?, p_address = ?, p_mobile_no = ? WHERE p_id = ?";
         $stmt = $conn->prepare($query);
         $stmt->bind_param('sisssi', $name, $age, $gender, $address, $mobile_number, $patient_id);

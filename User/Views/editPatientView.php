@@ -54,7 +54,7 @@
                             </div>
                             <div class='w3-third'>
                                 <div style='margin:8px 4px;'>
-                                    <div style='padding:8px 0px;'> Gender <span class='w3-text-red'>*</span> </div>
+                                    <div style='padding:8px 0px;'> Gender </div>
                                     <Select type="text" placeholder="" class='w3-input w3-round w3-border'
                                         id='patient_gender' style='padding:10px 4px;'>
                                         <option value="" selected disabled> Patient Gender </option>
@@ -72,8 +72,9 @@
                         </div>
                         <div class='w3-row'>
                             <div style='margin:8px 4px;'>
-                                <div style='padding:8px 0px;'> Mobile No </div>
-                                <input type="number" placeholder="Patient mobile number" id='mobile_number'
+                                <div style='padding:8px 0px;'> Mobile No 
+                                <span class='fa fa-microphone' onclick="audioToTextInInput('mobile_number')"></span></div>
+                                <input type="text" placeholder="Patient mobile number" id='mobile_number'
                                     class='w3-input w3-round w3-border' value="<?php echo $patient['p_mobile_no'] ?>">
                             </div>
                         </div>

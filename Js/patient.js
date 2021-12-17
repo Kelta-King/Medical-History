@@ -116,20 +116,13 @@ const updatePatient = (patient_id) => {
 		return false;
     }
 
-    if(gender.value.trim() == ""){
-        gender.focus();
-        showError("Patient gender is empty");
-		endLoader();
-		return false;
-    }
-
     let obj = {
         'patient_id': patient_id,
         'name':name.value,
         'age':age.value,
         'gender':gender.value,
         'address':address.value,
-        'mobile_number':mobile_no.value,
+        'mobile_number':mobile_no.value.replace(/\s/g,''),
     }
 
     console.log(obj);

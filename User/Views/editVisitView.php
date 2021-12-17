@@ -78,6 +78,7 @@
                     </div>
                 </div>
                 <div class='w3-white w3-round w3-padding kel-shadow w3-margin-top'>
+                    <div class='w3-pale-red' id='err'></div>
                     <div class='w3-section' style='padding:4px;'>
                         <div style='padding:8px 0px;'> Complain<span class='w3-text-red'>*</span>
                             <span class='fa fa-microphone' onclick="audioToTextInInput('complain')"></span>
@@ -102,16 +103,16 @@
                     <div class='w3-row'>
                         <div class='w3-half'>
                             <div style='margin:8px 4px;'>
-                                <div style='padding:8px 0px;'> Paid<span class='w3-text-red'>*</span> </div>
+                                <div style='padding:8px 0px;'> Paid </div>
                                 <input type="number" id="paid" placeholder="Amount paid"
-                                    class='w3-input w3-border w3-round' value="234">
+                                    class='w3-input w3-border w3-round' value="<?php echo $visit['v_paid'] ?>">
                             </div>
                         </div>
                         <div class='w3-half'>
                             <div style='margin:8px 4px;'>
-                                <div style='padding:8px 0px;'> Unpaid<span class='w3-text-red'>*</span> </div>
+                                <div style='padding:8px 0px;'> Unpaid </div>
                                 <input type="number" id="unpaid" placeholder="Amount unpaid"
-                                    class='w3-input w3-border w3-round' value="34">
+                                    class='w3-input w3-border w3-round' value="<?php echo $visit['v_unpaid'] ?>">
                             </div>
                         </div>
                     </div>
