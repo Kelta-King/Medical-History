@@ -36,20 +36,6 @@ const addVisit = (id) => {
 		return false;
     }
 
-    if(paid.value.trim() == ""){
-        paid.focus();
-        showError("Patient Paid amount is empty");
-		endLoader();
-		return false;
-    }
-
-    if(unpaid.value.trim() == ""){
-        unpaid.focus();
-        showError("Patient Unpaid amount is empty");
-		endLoader();
-		return false;
-    }
-
     // If current timings is yes then add current timing according to sql time
     // otherwise add the time from input
     // else add current timing

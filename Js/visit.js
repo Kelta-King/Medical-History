@@ -33,7 +33,7 @@ const updateVisit = (patient_id, visit_id) => {
         showError("Patient Treatment is empty");
 		endLoader();
 		return false;
-    }
+    }   
 
     let obj = {
         'patient_id': patient_id,
