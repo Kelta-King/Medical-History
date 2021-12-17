@@ -59,6 +59,6 @@
     }
     else{
         echo "Something went wrong";
-        header("Location:../logout"+$url_extension);
+        header("Location:../logout".$url_extension);
     }
 ?>
