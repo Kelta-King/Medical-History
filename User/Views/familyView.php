@@ -188,6 +188,6 @@
         </div>
     </div>
     <script src="../Js/common.js"></script>
-    <script src="../Js/familyoperations.js"></script>
+    <script src="../Js/family.js"></script>
 </body>
 </html>

@@ -47,7 +47,8 @@
                         <div class='w3-row'>
                             <div class='w3-third'>
                                 <div style='margin:8px 4px;'>
-                                <div style='padding:8px 0px;'> Name<span class='w3-text-red'>*</span> </div>
+                                <div style='padding:8px 0px;'> Name<span class='w3-text-red'>*</span> 
+                                <span class='fa fa-microphone' onclick="audioToTextInInput('patient_name')"></span></div>
                                     <input type="text" placeholder="Patient name"
                                     id='patient_name' class='w3-input w3-round w3-border' value="Sardar patel">
                                 </div>
@@ -73,7 +74,8 @@
                             </div>
                         </div>
                         <div class='w3-section' style='padding:4px;' >
-                            <div style='padding:8px 0px;'> Address </div>
+                            <div style='padding:8px 0px;'> Address 
+                            <span class='fa fa-microphone' onclick="audioToTextInInput('address')"></span></div>
                             <textarea id="address" class="w3-input w3-border w3-round" 
                             rows="2" placeholder="Patients address or Village or City">sample</textarea>
                         </div>

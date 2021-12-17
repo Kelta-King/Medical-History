@@ -86,6 +86,10 @@
             <hr style='border-bottom:0.5px solid gray;'>
             <div class='w3-content w3-padding-64' style='max-width:700px;'>
             <div class="w3-row">
+                <div class='w3-jumbo w3-center'>
+                    <i class='fa fa-microphone' title="Speak to search"
+                    onclick="audioToTextInInput('search_field')"></i>
+                </div>
                 <div class="autocomplete w3-col l10 m8 s8 " style='max-width:700px;min-width:400px;'>
                     <input type="text" name="search_field" id="search_field"
                     class='w3-input w3-border w3-round' placeholder='Search patient or family...'>
