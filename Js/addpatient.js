@@ -57,13 +57,6 @@ const addPatient = () => {
 		return false;
     }
 
-    if(gender.value.trim() == ""){
-        gender.focus();
-        showError("Patient gender is empty");
-		endLoader();
-		return false;
-    }
-
     // Visit details
     const timings = document.getElementById("timings");
     const complain = document.getElementById("complain");
@@ -89,20 +82,6 @@ const addPatient = () => {
     if(treatment.value.trim() == ""){
         treatment.focus();
         showError("Patient Treatment is empty");
-		endLoader();
-		return false;
-    }
-
-    if(paid.value.trim() == ""){
-        paid.focus();
-        showError("Patient Paid amount is empty");
-		endLoader();
-		return false;
-    }
-
-    if(unpaid.value.trim() == ""){
-        unpaid.focus();
-        showError("Patient Unpaid amount is empty");
 		endLoader();
 		return false;
     }
@@ -147,7 +126,7 @@ const addPatient = () => {
         'age':age.value,
         'gender':gender.value,
         'address':address.value,
-        'mobile_number':mobile_no.value,
+        'mobile_number':mobile_no.value.replace(/\s/g,''),
         'new_family':new_family,
         'timings':current_timings,
         'complain':complain.value,

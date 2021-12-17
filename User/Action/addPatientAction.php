@@ -37,7 +37,7 @@ if(isset($_SESSION['login_admin'])){
                 // This family name already exist
                 $conn->close();
 	            unset($_SESSION['db_join']);
-                die("This man's family name already exist. Please write a unique patient name to avoid confusion in future.");
+                die("Error:This man's family name already exist. Please write a unique patient name to avoid confusion in future.");
             }
 
             $query = "INSERT INTO family (f_name) VALUES (?)";
@@ -59,7 +59,11 @@ if(isset($_SESSION['login_admin'])){
             $stmt->execute();
         }
         else{
-            die("Something went wrong. Non integer value received for family.");
+            die("Error:Something went wrong. Non integer value received for family.");
+        }
+
+        if($data->gender == ""){
+            $data->gender = null;
         }
 
         $query = "INSERT INTO patients (p_name, p_age, p_gender, p_address, p_mobile_no, p_family) VALUES (?, ?, ?, ?, ?, ?)";
@@ -69,9 +73,12 @@ if(isset($_SESSION['login_admin'])){
 
         $patient_id = $conn->insert_id;
 
+        if($patient_id <= 0){
+            die("Error:Something went wrong");
+        }
+
         if($data->timings == "Yes" || $data->timings == ""){
             // Current timings
-            
             $query = "INSERT INTO visits (v_complain, v_diagnose, v_treatment, v_paid, v_unpaid, v_patient) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($query);
             $stmt->bind_param("sssssi", $data->complain, $data->diagnose, $data->treatment, $data->paid, $data->unpaid, $patient_id);
