@@ -308,27 +308,63 @@ let mobileCheck = (number) => {
 	
 }
 
-const audioToTextInInput = (input_id) => {
+const audioToTextInInput = (input_id, element = "") => {
 
-	var speech = true;
-	window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+	// var grammar = '#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;'
+	// var recognition = new SpeechRecognition();
+	// var speechRecognitionList = new SpeechGrammarList();
+	// speechRecognitionList.addFromString(grammar, 1);
+	// recognition.grammars = speechRecognitionList;
+	// recognition.continuous = false;
+	// recognition.lang = 'en-US';
+	// recognition.interimResults = false;
+	// recognition.maxAlternatives = 1;
+	if ('speechSynthesis' in window) {
+            
+		var srec = window.SpeechRecognition || window.webkitSpeechRecognition;;
+		var recognition = new srec();
 
-	const recognition = new SpeechRecognition();
-	recognition.interimResults = true;
-
-	recognition.addEventListener('result', e => {
-		const transcript = Array.from(e.results)
-			.map(result => result[0])
-			.map(result => result.transcript)
-			.join('')
-
-		document.getElementById(input_id).value = transcript;
-	});
+		recognition.onstart = function() {
+			element.innerHTML = " listning...";
+			console.log("Voice recognition started");
+		};
 		
-	if (speech == true) {
+		recognition.onresult = function(event) {
+			var transcript = event.results[0][0].transcript;
+			console.log(transcript);
+			document.getElementById(input_id).value = transcript;
+			element.innerHTML = "";
+		};
+		
+		// start recognition
 		recognition.start();
-		recognition.addEventListener('end', console.log("Done"));
+	} 
+	else {
+		console.log('Speech recognition not supported');
 	}
+
+	// var speech = true;
+	// window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+	// element.innerHTML = "listning...";
+	// const recognition = new SpeechRecognition();
+	// recognition.interimResults = true;
+
+	// recognition.addEventListener('result', e => {
+	// 	const transcript = Array.from(e.results)
+	// 		.map(result => result[0])
+	// 		.map(result => result.transcript)
+	// 		.join('')
+
+	// 	document.getElementById(input_id).value = transcript;
+
+	// });
+		
+	// if (speech == true) {
+	// 	recognition.start();
+	// 	recognition.addEventListener('end', console.log("Done"));
+	// 	element.innerHTML = "";
+	// }
 
 }
 

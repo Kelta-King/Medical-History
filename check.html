@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        if ('speechSynthesis' in window) {
+            
+            var srec = window.SpeechRecognition || window.webkitSpeechRecognition;;
+            var recognition = new srec();
+  
+            recognition.onstart = function() {
+                console.log("Voice recognition started. Try speaking into the microphone.");
+            };
+            
+            recognition.onresult = function(event) {
+                var transcript = event.results[0][0].transcript;
+                console.log(transcript);
+            };
+            
+            // start recognition
+            recognition.start();
+        } 
+        else {
+            console.log('Speech recognition not supported 😢');
+        // code to handle error
+        }
+
+    </script>
+</body>
+</html>
