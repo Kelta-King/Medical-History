@@ -40,7 +40,7 @@
                             <div class='w3-third'>
                                 <div style='margin:8px 4px;'>
                                     <div style='padding:8px 0px;'> Name<span class='w3-text-red'>*</span> 
-                                    <span class='fa fa-microphone' onclick="audioToTextInInput('patient_name')"></span></div>
+                                    <span class='fa fa-microphone' onclick="audioToTextInInput('patient_name', this)"></span></div>
                                     <input type="text" placeholder="Patient name" id='patient_name'
                                         class='w3-input w3-round w3-border' value="<?php echo $patient['p_name'] ?>">
                                 </div>
@@ -66,14 +66,14 @@
                             </div>
                         </div>
                         <div class='w3-section' style='padding:4px;'>
-                            <div style='padding:8px 0px;'> Address <span class='fa fa-microphone' onclick="audioToTextInInput('address')"></span></div>
+                            <div style='padding:8px 0px;'> Address <span class='fa fa-microphone' onclick="audioToTextInInput('address', this)"></span></div>
                             <textarea id="address" class="w3-input w3-border w3-round" rows="2"
                                 placeholder="Patients address or Village or City"><?php echo $patient['p_address'] ?></textarea>
                         </div>
                         <div class='w3-row'>
                             <div style='margin:8px 4px;'>
                                 <div style='padding:8px 0px;'> Mobile No 
-                                <span class='fa fa-microphone' onclick="audioToTextInInput('mobile_number')"></span></div>
+                                <span class='fa fa-microphone' onclick="audioToTextInInput('mobile_number', this)"></span></div>
                                 <input type="text" placeholder="Patient mobile number" id='mobile_number'
                                     class='w3-input w3-round w3-border' value="<?php echo $patient['p_mobile_no'] ?>">
                             </div>

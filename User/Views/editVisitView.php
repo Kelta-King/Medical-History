@@ -81,21 +81,21 @@
                     <div class='w3-pale-red' id='err'></div>
                     <div class='w3-section' style='padding:4px;'>
                         <div style='padding:8px 0px;'> Complain<span class='w3-text-red'>*</span>
-                            <span class='fa fa-microphone' onclick="audioToTextInInput('complain')"></span>
+                            <span class='fa fa-microphone' onclick="audioToTextInInput('complain', this)"></span>
                         </div>
                         <textarea id="complain" class="w3-input w3-border w3-round" rows="2"
                             placeholder="Complain of patient"><?php echo $visit['v_complain'] ?></textarea>
                     </div>
                     <div class='w3-section' style='padding:4px;'>
                         <div style='padding:8px 0px;'> Diagnose<span class='w3-text-red'>*</span>
-                            <span class='fa fa-microphone' onclick="audioToTextInInput('diagnose')"></span>
+                            <span class='fa fa-microphone' onclick="audioToTextInInput('diagnose', this)"></span>
                         </div>
                         <textarea id="diagnose" class="w3-input w3-border w3-round" rows="2"
                             placeholder="Diagnose of patient"><?php echo $visit['v_diagnose'] ?></textarea>
                     </div>
                     <div class='w3-section' style='padding:4px;'>
                         <div style='padding:8px 0px;'> Treatment<span class='w3-text-red'>*</span>
-                            <span class='fa fa-microphone' onclick="audioToTextInInput('treatment')"></span>
+                            <span class='fa fa-microphone' onclick="audioToTextInInput('treatment', this)"></span>
                         </div>
                         <textarea id="treatment" class="w3-input w3-border w3-round" rows="2"
                             placeholder="Treatment of patient"><?php echo $visit['v_treatment'] ?></textarea>

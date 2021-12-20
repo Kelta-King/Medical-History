@@ -308,32 +308,39 @@ let mobileCheck = (number) => {
 	
 }
 
+const getCurrentFile = () => {
+    let url = window.location.href;
+    let objs = url.split("/");
+    return (objs[objs.length-1]);
+}
+
 const audioToTextInInput = (input_id, element = "") => {
 
-	// var grammar = '#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;'
-	// var recognition = new SpeechRecognition();
-	// var speechRecognitionList = new SpeechGrammarList();
-	// speechRecognitionList.addFromString(grammar, 1);
-	// recognition.grammars = speechRecognitionList;
-	// recognition.continuous = false;
-	// recognition.lang = 'en-US';
-	// recognition.interimResults = false;
-	// recognition.maxAlternatives = 1;
+
 	if ('speechSynthesis' in window) {
             
 		var srec = window.SpeechRecognition || window.webkitSpeechRecognition;;
 		var recognition = new srec();
 
 		recognition.onstart = function() {
-			element.innerHTML = " listning...";
+			element.innerHTML = " listening...";
 			console.log("Voice recognition started");
 		};
 		
 		recognition.onresult = function(event) {
 			var transcript = event.results[0][0].transcript;
 			console.log(transcript);
-			document.getElementById(input_id).value = transcript;
+			document.getElementById(input_id).value += transcript + " ";
 			element.innerHTML = "";
+			if(getCurrentFile() == ("searchFamily" + extension)){
+				searchFamily();
+			}
+			else if(getCurrentFile() == "searchPatient" + extension){
+				searchPatient();
+			}
+			else if(getCurrentFile() == "dashboard" + extension){
+				searchBoth();
+			}
 		};
 		
 		// start recognition

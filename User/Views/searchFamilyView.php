@@ -86,7 +86,7 @@
                     <div class='w3-row' style='padding-bottom:32px;'>
                         <div class='w3-jumbo w3-center'>
                             <i class='fa fa-microphone' title="Speak to search"
-                            onclick="audioToTextInInput('search_field')"></i>
+                            onclick="audioToTextInInput('search_field', this)"></i>
                         </div>
                         <div class='autocomplete w3-col l10 m10 s8'>
                             <input type="text" placeholder='Search family...' 
