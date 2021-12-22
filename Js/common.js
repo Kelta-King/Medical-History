@@ -1,6 +1,6 @@
 
 var server_name = "localhost";
-var extension = ".php";
+var extension = "";
 var protocol_server = "http://";
 
 let inputEmptyCheck = (id, error) => {
@@ -339,6 +339,7 @@ const audioToTextInInput = (input_id, element = "") => {
 				searchPatient();
 			}
 			else if(getCurrentFile() == "dashboard" + extension){
+				console.log("Here");
 				searchBoth();
 			}
 		};
@@ -347,6 +348,7 @@ const audioToTextInInput = (input_id, element = "") => {
 		recognition.start();
 	} 
 	else {
+		alert("Speech recognition not supported in your browser");
 		console.log('Speech recognition not supported');
 	}
 
