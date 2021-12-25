@@ -1,5 +1,5 @@
 <?php
 
-define("CLINIC_NAME", "Shreeji Clinic");
+define("CLINIC_NAME", "Good Clinic");
 
 ?>

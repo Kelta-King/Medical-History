@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 08, 2021 at 03:43 PM
+-- Generation Time: Dec 25, 2021 at 06:37 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_email`, `admin_pass`, `admin_name`) VALUES
-(1, 'keltaking9999@gmail.com', '$2y$12$Zt3gD2oF9oW1/6pjpmtBje7PS2jGWsD4fvlliy6jf50sh2jCSbIwW', 'kushang shah1');
+(1, 'keltaking9999@gmail.com', '$2y$12$Zt3gD2oF9oW1/6pjpmtBje7PS2jGWsD4fvlliy6jf50sh2jCSbIwW', 'kushang shah');
 
 -- --------------------------------------------------------
 
@@ -52,15 +52,6 @@ CREATE TABLE `family` (
   `f_name` varchar(500) DEFAULT NULL,
   `f_members` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `family`
---
-
-INSERT INTO `family` (`f_id`, `f_name`, `f_members`) VALUES
-(1, 'Sardar patel and Family', 2),
-(2, 'Mahesh Bhatt and Family', 1),
-(3, 'Yogesh Bhatt and Family', 1);
 
 -- --------------------------------------------------------
 
@@ -78,18 +69,6 @@ CREATE TABLE `patients` (
   `p_family` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `patients`
---
-
-INSERT INTO `patients` (`p_id`, `p_name`, `p_age`, `p_gender`, `p_address`, `p_mobile_no`, `p_family`) VALUES
-(1, 'Sardar patel', 6, 'M', 'sample', '2345678899', 1),
-(2, 'Sardarbhai patel', 60, 'M', 'sample', '2345678899', 1),
-(3, 'Sardar patel', 6, 'M', 'sample', '2345678899', NULL),
-(4, 'Sardar patel', 6, 'M', 'sample', '2345678899', NULL),
-(5, 'Mahesh Bhatt', 45, 'M', 'Chiloda, Gandhinagar', '2345678899', 2),
-(6, 'Yogesh Bhatt', 32, 'M', 'Pratya', '2345678899', 3);
-
 -- --------------------------------------------------------
 
 --
@@ -106,18 +85,6 @@ CREATE TABLE `visits` (
   `v_unpaid` varchar(500) DEFAULT NULL,
   `v_patient` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `visits`
---
-
-INSERT INTO `visits` (`v_id`, `v_timing`, `v_complain`, `v_diagnose`, `v_treatment`, `v_paid`, `v_unpaid`, `v_patient`) VALUES
-(1, '2021-12-07 06:51:13', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 1),
-(2, '2021-12-07 06:51:26', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 2),
-(3, '2021-12-07 06:59:04', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 3),
-(4, '2021-12-07 06:59:11', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 4),
-(5, '2021-12-07 15:26:36', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 5),
-(6, '2021-12-01 08:26:34', 'sample complain', 'sample diagnose', 'sample treatment', '234', '34', 6);
 
 --
 -- Indexes for dumped tables
@@ -165,19 +132,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `family`
 --
 ALTER TABLE `family`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `v_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `v_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

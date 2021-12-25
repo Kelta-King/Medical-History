@@ -50,14 +50,14 @@
                                 <div style='padding:8px 0px;'> Name<span class='w3-text-red'>*</span> 
                                 <span class='fa fa-microphone' onclick="audioToTextInInput('patient_name', this)"></span></div>
                                     <input type="text" placeholder="Patient name"
-                                    id='patient_name' class='w3-input w3-round w3-border' value="Sardar patel">
+                                    id='patient_name' class='w3-input w3-round w3-border'>
                                 </div>
                             </div>
                             <div class='w3-third'>
                                 <div style='margin:8px 4px;'>
                                 <div style='padding:8px 0px;'> Age<span class='w3-text-red'>*</span> </div>
                                     <input type="number" placeholder="Patient age"
-                                    id='patient_age' class='w3-input w3-round w3-border' value="6">
+                                    id='patient_age' class='w3-input w3-round w3-border'>
                                 </div>
                             </div>
                             <div class='w3-third'>
@@ -77,7 +77,7 @@
                             <div style='padding:8px 0px;'> Address 
                             <span class='fa fa-microphone' onclick="audioToTextInInput('address', this)"></span></div>
                             <textarea id="address" class="w3-input w3-border w3-round" 
-                            rows="2" placeholder="Patients address or Village or City">sample</textarea>
+                            rows="2" placeholder="Patients address or Village or City"></textarea>
                         </div>
                         <div class='w3-row'>
                             <div class='w3-half'>
@@ -85,8 +85,7 @@
                                 <div style='padding:8px 0px;'> Mobile No 
                                 <span class='fa fa-microphone' onclick="audioToTextInInput('mobile_number', this)"></span></div>
                                     <input type="text" placeholder="Patient mobile number"
-                                    id='mobile_number' class='w3-input w3-round w3-border'
-                                    value="2345678899">
+                                    id='mobile_number' class='w3-input w3-round w3-border'>
                                 </div>
                             </div>
                             <div class='w3-half'>
@@ -141,33 +140,33 @@
                             <span class='fa fa-microphone' onclick="audioToTextInInput('complain' ,this)"></span>
                             </div>
                             <textarea id="complain" class="w3-input w3-border w3-round" 
-                            rows="2" placeholder="Complain of patient">sample complain</textarea>
+                            rows="2" placeholder="Complain of patient"></textarea>
                         </div>
                         <div class='w3-section' style='padding:4px;' >
                             <div style='padding:8px 0px;'> Diagnose<span class='w3-text-red'>*</span>
                             <span class='fa fa-microphone' onclick="audioToTextInInput('diagnose', this)"></span> 
                             </div>
                             <textarea id="diagnose" class="w3-input w3-border w3-round" 
-                            rows="2" placeholder="Diagnose of patient">sample diagnose</textarea>
+                            rows="2" placeholder="Diagnose of patient"></textarea>
                         </div>
                         <div class='w3-section' style='padding:4px;' >
                             <div style='padding:8px 0px;'> Treatment<span class='w3-text-red'>*</span> 
                             <span class='fa fa-microphone' onclick="audioToTextInInput('treatment', this)"></span>
                             </div>
                             <textarea id="treatment" class="w3-input w3-border w3-round" 
-                            rows="2" placeholder="Treatment of patient">sample treatment</textarea>
+                            rows="2" placeholder="Treatment of patient"></textarea>
                         </div>
                         <div class='w3-row'>
                             <div class='w3-half'>
                                 <div style='margin:8px 4px;'>
-                                    <div style='padding:8px 0px;'> Paid<span class='w3-text-red'>*</span> </div>
+                                    <div style='padding:8px 0px;'> Paid </div>
                                     <input type="number" id="paid" placeholder="Amount paid"
                                     class='w3-input w3-border w3-round'>
                                 </div>
                             </div>
                             <div class='w3-half'>
                                 <div style='margin:8px 4px;'>
-                                    <div style='padding:8px 0px;'> Unpaid<span class='w3-text-red'>*</span> </div>
+                                    <div style='padding:8px 0px;'> Unpaid </div>
                                     <input type="number" id="unpaid" placeholder="Amount unpaid"
                                     class='w3-input w3-border w3-round'>
                                 </div>
