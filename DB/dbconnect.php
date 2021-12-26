@@ -1,5 +1,6 @@
 <?php
 
+// Change data accordingly
 $d_servername = "localhost";
 $d_username = "root";
 $d_password = "";
