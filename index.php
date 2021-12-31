@@ -23,7 +23,7 @@ require("Common/kelta_functions.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class='' id='login_bg'>
-    <div class='w3-content' style=''>
+    <div class='w3-content'>
         <div class='w3-round w3-padding w3-white' style='margin-top:100px;'>
             <div class='w3-padding-32'>
                 <div class='w3-center'>
