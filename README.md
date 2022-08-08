@@ -1,4 +1,4 @@
-# Kelta-Calender app
+# Medical-History app
 Here is how the UI looks...
 1. LogIn panel
 
